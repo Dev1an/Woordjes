@@ -9,13 +9,8 @@
 import UIKit
 import CoreData
 
-var appDelegate: AppDelegate {
-	return UIApplication.shared.delegate as! AppDelegate
-}
-
-var dataContainer: NSPersistentContainer {
-	return appDelegate.persistentContainer
-}
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let dataContainer = appDelegate.persistentContainer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		
+		
+		
 		return true
 	}
 
