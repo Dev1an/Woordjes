@@ -11,20 +11,34 @@ import CoreData
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let dataContainer = appDelegate.persistentContainer
+let notificationCenter = NotificationCenter.default
+
+var externalWindow: UIWindow?
+
+func createWindow(forExternalScreen screen: UIScreen) {
+	externalWindow = UIWindow(frame: screen.bounds)
+	externalWindow!.screen = screen
+	
+	externalWindow!.rootViewController = ExternalView(nibName: "ExternalView", bundle: nil)
+	externalWindow!.windowLevel = UIWindowLevelNormal
+	externalWindow!.isHidden = false
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		// Override point for customization after application launch.
 		
-		
+		if UIScreen.screens.count > 1 {
+			createWindow(forExternalScreen: UIScreen.screens.last!)
+		}
 		
 		return true
 	}
-
+	
 	func applicationWillResignActive(_ application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

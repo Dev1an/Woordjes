@@ -9,6 +9,19 @@
 import UIKit
 import CoreData
 
+var screenConnectionObserver, screenDisconnectionObserver: NSObjectProtocol?
+
+func addObservers() {
+	print("adding observers")
+	screenConnectionObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIScreenDidConnect, object: nil, queue: OperationQueue.main) { notification in
+		createWindow(forExternalScreen: notification.object as! UIScreen)
+	}
+	screenDisconnectionObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIScreenDidDisconnect, object: nil, queue: OperationQueue.main) { _ in
+		externalWindow?.isHidden = true
+		fullScreenLabel = nil
+	}
+}
+
 class ViewController: UITableViewController {
 
 	var fetchedWordsController: NSFetchedResultsController<Word>?
@@ -25,6 +38,8 @@ class ViewController: UITableViewController {
 		fetchedWordsController!.delegate = self
 		
 		try? fetchedWordsController?.performFetch()
+		
+		addObservers()
 	}
 	
 	func configureCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -46,12 +61,13 @@ class ViewController: UITableViewController {
 		// 3. Grab the value from the text field, and print it when the user clicks OK.
 		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
 			Word(alert.textFields!.first!.text!, insertInto: dataContainer.viewContext)
+			appDelegate.saveContext()
 		}))
 		
 		// 4. Present the alert.
 		self.present(alert, animated: true, completion: nil)
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// TODO: Dispose of any resources that can be recreated.
@@ -68,12 +84,13 @@ extension ViewController {
 		if editingStyle == .delete {
 			if let controller = fetchedWordsController {
 				dataContainer.viewContext.delete(controller.object(at: indexPath))
+				appDelegate.saveContext()
 			}
 		}
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print(fetchedWordsController?.object(at: indexPath).creationDate)
+		fullScreenLabel?.text = fetchedWordsController?.object(at: indexPath).value
 	}
 }
 

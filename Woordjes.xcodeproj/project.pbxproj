@@ -15,6 +15,8 @@
 		7478D51C1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D51B1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift */; };
 		7478D5281DAAF719004D2A9B /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */; };
 		7478D5291DAAF71D004D2A9B /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */; };
+		7498B80A1DAC2EAA00D7E661 /* ExternalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498B8081DAC2EAA00D7E661 /* ExternalView.swift */; };
+		7498B80B1DAC2EAA00D7E661 /* ExternalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7498B8091DAC2EAA00D7E661 /* ExternalView.xib */; };
 		74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */; };
 		74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169B01DAA3F76000BDC28 /* ViewController.swift */; };
 		74F169B41DAA3F76000BDC28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F169B21DAA3F76000BDC28 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		7478D51D1DAAF69D004D2A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7498B8081DAC2EAA00D7E661 /* ExternalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalView.swift; sourceTree = "<group>"; };
+		7498B8091DAC2EAA00D7E661 /* ExternalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalView.xib; sourceTree = "<group>"; };
 		74F169AB1DAA3F76000BDC28 /* Woordjes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woordjes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F169B01DAA3F76000BDC28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			children = (
 				74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */,
 				74F169B01DAA3F76000BDC28 /* ViewController.swift */,
+				7498B8081DAC2EAA00D7E661 /* ExternalView.swift */,
+				7498B8091DAC2EAA00D7E661 /* ExternalView.xib */,
 				74F169B21DAA3F76000BDC28 /* Main.storyboard */,
 				74F169B81DAA3F76000BDC28 /* Assets.xcassets */,
 				74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */,
@@ -326,6 +332,7 @@
 				74F169BC1DAA3F76000BDC28 /* LaunchScreen.storyboard in Resources */,
 				74F169B91DAA3F76000BDC28 /* Assets.xcassets in Resources */,
 				74F169B41DAA3F76000BDC28 /* Main.storyboard in Resources */,
+				7498B80B1DAC2EAA00D7E661 /* ExternalView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */,
+				7498B80A1DAC2EAA00D7E661 /* ExternalView.swift in Sources */,
 				74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */,
 				74F169B71DAA3F76000BDC28 /* Woordjes.xcdatamodeld in Sources */,
 				74F169D41DAA423B000BDC28 /* Word+CoreDataProperties.swift in Sources */,
@@ -653,6 +661,7 @@
 				7478D51F1DAAF69D004D2A9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7478D5231DAAF69D004D2A9B /* Build configuration list for PBXNativeTarget "Woordjes DesktopTests" */ = {
 			isa = XCConfigurationList;
@@ -661,6 +670,7 @@
 				7478D5211DAAF69D004D2A9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74F169A61DAA3F76000BDC28 /* Build configuration list for PBXProject "Woordjes" */ = {
 			isa = XCConfigurationList;
