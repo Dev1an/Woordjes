@@ -9,6 +9,14 @@
 import UIKit
 import CoreData
 
+var appDelegate: AppDelegate {
+	return UIApplication.shared.delegate as! AppDelegate
+}
+
+var dataContainer: NSPersistentContainer {
+	return appDelegate.persistentContainer
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

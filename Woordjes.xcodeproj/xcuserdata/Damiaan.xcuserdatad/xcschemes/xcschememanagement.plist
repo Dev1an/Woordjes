@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Woordjes Desktop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Woordjes.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7478D5031DAAF69C004D2A9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7478D5161DAAF69D004D2A9B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>74F169AA1DAA3F76000BDC28</key>
 		<dict>
 			<key>primary</key>

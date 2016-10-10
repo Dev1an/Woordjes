@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7478D5071DAAF69C004D2A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5061DAAF69C004D2A9B /* AppDelegate.swift */; };
+		7478D5091DAAF69C004D2A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5081DAAF69C004D2A9B /* ViewController.swift */; };
+		7478D50C1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7478D50A1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld */; };
+		7478D50E1DAAF69C004D2A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7478D50D1DAAF69C004D2A9B /* Assets.xcassets */; };
+		7478D5111DAAF69D004D2A9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7478D50F1DAAF69D004D2A9B /* Main.storyboard */; };
+		7478D51C1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D51B1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift */; };
+		7478D5281DAAF719004D2A9B /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */; };
+		7478D5291DAAF71D004D2A9B /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */; };
 		74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */; };
 		74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169B01DAA3F76000BDC28 /* ViewController.swift */; };
 		74F169B41DAA3F76000BDC28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F169B21DAA3F76000BDC28 /* Main.storyboard */; };
@@ -14,9 +22,18 @@
 		74F169B91DAA3F76000BDC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F169B81DAA3F76000BDC28 /* Assets.xcassets */; };
 		74F169BC1DAA3F76000BDC28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F169BA1DAA3F76000BDC28 /* LaunchScreen.storyboard */; };
 		74F169C71DAA3F76000BDC28 /* WoordjesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169C61DAA3F76000BDC28 /* WoordjesTests.swift */; };
+		74F169D31DAA423B000BDC28 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */; };
+		74F169D41DAA423B000BDC28 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169D21DAA423B000BDC28 /* Word+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7478D5181DAAF69D004D2A9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74F169A31DAA3F76000BDC28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7478D5031DAAF69C004D2A9B;
+			remoteInfo = "Woordjes Desktop";
+		};
 		74F169C31DAA3F76000BDC28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 74F169A31DAA3F76000BDC28 /* Project object */;
@@ -27,6 +44,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7478D5041DAAF69C004D2A9B /* Woordjes Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woordjes Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7478D5061DAAF69C004D2A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7478D5081DAAF69C004D2A9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7478D50B1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Woordjes_Desktop.xcdatamodel; sourceTree = "<group>"; };
+		7478D50D1DAAF69C004D2A9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7478D5101DAAF69D004D2A9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7478D5121DAAF69D004D2A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7478D5171DAAF69D004D2A9B /* Woordjes DesktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Woordjes DesktopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7478D51B1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woordjes_DesktopTests.swift; sourceTree = "<group>"; };
+		7478D51D1DAAF69D004D2A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74F169AB1DAA3F76000BDC28 /* Woordjes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woordjes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F169B01DAA3F76000BDC28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,9 +67,25 @@
 		74F169C21DAA3F76000BDC28 /* WoordjesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoordjesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F169C61DAA3F76000BDC28 /* WoordjesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoordjesTests.swift; sourceTree = "<group>"; };
 		74F169C81DAA3F76000BDC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		74F169D21DAA423B000BDC28 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7478D5011DAAF69C004D2A9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7478D5141DAAF69D004D2A9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74F169A81DAA3F76000BDC28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,11 +103,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7478D5051DAAF69C004D2A9B /* Woordjes Desktop */ = {
+			isa = PBXGroup;
+			children = (
+				7478D5061DAAF69C004D2A9B /* AppDelegate.swift */,
+				7478D5081DAAF69C004D2A9B /* ViewController.swift */,
+				7478D50D1DAAF69C004D2A9B /* Assets.xcassets */,
+				7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */,
+				7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */,
+				7478D50F1DAAF69D004D2A9B /* Main.storyboard */,
+				7478D5121DAAF69D004D2A9B /* Info.plist */,
+				7478D50A1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld */,
+			);
+			path = "Woordjes Desktop";
+			sourceTree = "<group>";
+		};
+		7478D51A1DAAF69D004D2A9B /* Woordjes DesktopTests */ = {
+			isa = PBXGroup;
+			children = (
+				7478D51B1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift */,
+				7478D51D1DAAF69D004D2A9B /* Info.plist */,
+			);
+			path = "Woordjes DesktopTests";
+			sourceTree = "<group>";
+		};
 		74F169A21DAA3F76000BDC28 = {
 			isa = PBXGroup;
 			children = (
 				74F169AD1DAA3F76000BDC28 /* Woordjes */,
 				74F169C51DAA3F76000BDC28 /* WoordjesTests */,
+				7478D5051DAAF69C004D2A9B /* Woordjes Desktop */,
+				7478D51A1DAAF69D004D2A9B /* Woordjes DesktopTests */,
 				74F169AC1DAA3F76000BDC28 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +143,8 @@
 			children = (
 				74F169AB1DAA3F76000BDC28 /* Woordjes.app */,
 				74F169C21DAA3F76000BDC28 /* WoordjesTests.xctest */,
+				7478D5041DAAF69C004D2A9B /* Woordjes Desktop.app */,
+				7478D5171DAAF69D004D2A9B /* Woordjes DesktopTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +156,8 @@
 				74F169B01DAA3F76000BDC28 /* ViewController.swift */,
 				74F169B21DAA3F76000BDC28 /* Main.storyboard */,
 				74F169B81DAA3F76000BDC28 /* Assets.xcassets */,
+				74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */,
+				74F169D21DAA423B000BDC28 /* Word+CoreDataProperties.swift */,
 				74F169BA1DAA3F76000BDC28 /* LaunchScreen.storyboard */,
 				74F169BD1DAA3F76000BDC28 /* Info.plist */,
 				74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */,
@@ -102,6 +177,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7478D5031DAAF69C004D2A9B /* Woordjes Desktop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7478D5221DAAF69D004D2A9B /* Build configuration list for PBXNativeTarget "Woordjes Desktop" */;
+			buildPhases = (
+				7478D5001DAAF69C004D2A9B /* Sources */,
+				7478D5011DAAF69C004D2A9B /* Frameworks */,
+				7478D5021DAAF69C004D2A9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Woordjes Desktop";
+			productName = "Woordjes Desktop";
+			productReference = 7478D5041DAAF69C004D2A9B /* Woordjes Desktop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7478D5161DAAF69D004D2A9B /* Woordjes DesktopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7478D5231DAAF69D004D2A9B /* Build configuration list for PBXNativeTarget "Woordjes DesktopTests" */;
+			buildPhases = (
+				7478D5131DAAF69D004D2A9B /* Sources */,
+				7478D5141DAAF69D004D2A9B /* Frameworks */,
+				7478D5151DAAF69D004D2A9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7478D5191DAAF69D004D2A9B /* PBXTargetDependency */,
+			);
+			name = "Woordjes DesktopTests";
+			productName = "Woordjes DesktopTests";
+			productReference = 7478D5171DAAF69D004D2A9B /* Woordjes DesktopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		74F169AA1DAA3F76000BDC28 /* Woordjes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74F169CB1DAA3F76000BDC28 /* Build configuration list for PBXNativeTarget "Woordjes" */;
@@ -147,6 +257,17 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Damiaan Dufaux";
 				TargetAttributes = {
+					7478D5031DAAF69C004D2A9B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7TD9A665TC;
+						ProvisioningStyle = Automatic;
+					};
+					7478D5161DAAF69D004D2A9B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7TD9A665TC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7478D5031DAAF69C004D2A9B;
+					};
 					74F169AA1DAA3F76000BDC28 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7TD9A665TC;
@@ -175,11 +296,29 @@
 			targets = (
 				74F169AA1DAA3F76000BDC28 /* Woordjes */,
 				74F169C11DAA3F76000BDC28 /* WoordjesTests */,
+				7478D5031DAAF69C004D2A9B /* Woordjes Desktop */,
+				7478D5161DAAF69D004D2A9B /* Woordjes DesktopTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7478D5021DAAF69C004D2A9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7478D50E1DAAF69C004D2A9B /* Assets.xcassets in Resources */,
+				7478D5111DAAF69D004D2A9B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7478D5151DAAF69D004D2A9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74F169A91DAA3F76000BDC28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +339,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7478D5001DAAF69C004D2A9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7478D5091DAAF69C004D2A9B /* ViewController.swift in Sources */,
+				7478D5071DAAF69C004D2A9B /* AppDelegate.swift in Sources */,
+				7478D50C1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld in Sources */,
+				7478D5291DAAF71D004D2A9B /* Word+CoreDataProperties.swift in Sources */,
+				7478D5281DAAF719004D2A9B /* Word+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7478D5131DAAF69D004D2A9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7478D51C1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74F169A71DAA3F76000BDC28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +366,8 @@
 				74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */,
 				74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */,
 				74F169B71DAA3F76000BDC28 /* Woordjes.xcdatamodeld in Sources */,
+				74F169D41DAA423B000BDC28 /* Word+CoreDataProperties.swift in Sources */,
+				74F169D31DAA423B000BDC28 /* Word+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +382,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7478D5191DAAF69D004D2A9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7478D5031DAAF69C004D2A9B /* Woordjes Desktop */;
+			targetProxy = 7478D5181DAAF69D004D2A9B /* PBXContainerItemProxy */;
+		};
 		74F169C41DAA3F76000BDC28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 74F169AA1DAA3F76000BDC28 /* Woordjes */;
@@ -229,6 +395,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7478D50F1DAAF69D004D2A9B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7478D5101DAAF69D004D2A9B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		74F169B21DAA3F76000BDC28 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -248,6 +422,78 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7478D51E1DAAF69D004D2A9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7TD9A665TC;
+				INFOPLIST_FILE = "Woordjes Desktop/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.Woordjes-Desktop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7478D51F1DAAF69D004D2A9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7TD9A665TC;
+				INFOPLIST_FILE = "Woordjes Desktop/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.Woordjes-Desktop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7478D5201DAAF69D004D2A9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7TD9A665TC;
+				INFOPLIST_FILE = "Woordjes DesktopTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.Woordjes-DesktopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woordjes Desktop.app/Contents/MacOS/Woordjes Desktop";
+			};
+			name = Debug;
+		};
+		7478D5211DAAF69D004D2A9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7TD9A665TC;
+				INFOPLIST_FILE = "Woordjes DesktopTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.Woordjes-DesktopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woordjes Desktop.app/Contents/MacOS/Woordjes Desktop";
+			};
+			name = Release;
+		};
 		74F169C91DAA3F76000BDC28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -400,6 +646,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7478D5221DAAF69D004D2A9B /* Build configuration list for PBXNativeTarget "Woordjes Desktop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7478D51E1DAAF69D004D2A9B /* Debug */,
+				7478D51F1DAAF69D004D2A9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7478D5231DAAF69D004D2A9B /* Build configuration list for PBXNativeTarget "Woordjes DesktopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7478D5201DAAF69D004D2A9B /* Debug */,
+				7478D5211DAAF69D004D2A9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		74F169A61DAA3F76000BDC28 /* Build configuration list for PBXProject "Woordjes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -416,6 +678,7 @@
 				74F169CD1DAA3F76000BDC28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74F169CE1DAA3F76000BDC28 /* Build configuration list for PBXNativeTarget "WoordjesTests" */ = {
 			isa = XCConfigurationList;
@@ -424,10 +687,21 @@
 				74F169D01DAA3F76000BDC28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		7478D50A1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7478D50B1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodel */,
+			);
+			currentVersion = 7478D50B1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodel */;
+			path = Woordjes_Desktop.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
