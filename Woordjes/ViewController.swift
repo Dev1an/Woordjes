@@ -13,6 +13,8 @@ class ViewController: UITableViewController {
 
 	var fetchedWordsController: NSFetchedResultsController<Word>?
 	
+	var newScrollPosition: IndexPath?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -23,34 +25,6 @@ class ViewController: UITableViewController {
 		fetchedWordsController!.delegate = self
 		
 		try? fetchedWordsController?.performFetch()
-	}
-	
-	override func numberOfSections(in tableView: UITableView) -> Int {
-		return fetchedWordsController?.sections?.count ?? 1
-	}
-	
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		guard let sections = fetchedWordsController?.sections else {
-			return 0
-		}
-		return sections[section].numberOfObjects
-	}
-	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "word")
-			else {
-				return UITableViewCell(style: .default, reuseIdentifier: nil)
-		}
-		configureCell(cell, forRowAt: indexPath)
-		return cell
-	}
-	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-		if editingStyle == .delete {
-			if let controller = fetchedWordsController {
-				dataContainer.viewContext.delete(controller.object(at: indexPath))
-			}
-		}
 	}
 	
 	func configureCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -84,7 +58,59 @@ class ViewController: UITableViewController {
 	}
 }
 
+
+
+
+
+// MARK: - Table view Delegate
+extension ViewController {
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			if let controller = fetchedWordsController {
+				dataContainer.viewContext.delete(controller.object(at: indexPath))
+			}
+		}
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print(fetchedWordsController?.object(at: indexPath).creationDate)
+	}
+}
+
+
+
+
+
+// MARK: - Data source
+extension ViewController {
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		return fetchedWordsController?.sections?.count ?? 1
+	}
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		guard let sections = fetchedWordsController?.sections else {
+			return 0
+		}
+		return sections[section].numberOfObjects
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "word")
+			else {
+				return UITableViewCell(style: .default, reuseIdentifier: nil)
+		}
+		configureCell(cell, forRowAt: indexPath)
+		return cell
+	}
+}
+
+
+
+
+
+// MARK: - Fetched results controller
 extension ViewController: NSFetchedResultsControllerDelegate {
+	
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.beginUpdates()
 	}
@@ -104,6 +130,7 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 		switch type {
 		case .insert:
 			tableView.insertRows(at: [newIndexPath!], with: .automatic)
+			newScrollPosition = newIndexPath
 		case .delete:
 			tableView.deleteRows(at: [indexPath!], with: .automatic)
 		case .update:
@@ -115,5 +142,9 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 	
 	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.endUpdates()
+		if let position = newScrollPosition {
+			tableView.scrollToRow(at: position, at: .none, animated: true)
+			newScrollPosition = nil
+		}
 	}
 }

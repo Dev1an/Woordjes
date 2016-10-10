@@ -11,5 +11,7 @@ import CoreData
 
 
 public class Word: NSManagedObject {
-
+	public override func awakeFromInsert() {
+		self.creationDate = Date()
+	}
 }

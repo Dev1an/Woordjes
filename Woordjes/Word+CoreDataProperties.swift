@@ -21,6 +21,7 @@ extension Word {
         return NSFetchRequest<Word>(entityName: "Word");
     }
 
-    @NSManaged public var value: String
+	@NSManaged public var value: String
+	@NSManaged public var creationDate: Date
 
 }

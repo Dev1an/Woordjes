@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Word" representedClassName=".Word" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" minDateTimeInterval="497816760" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="value" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>
