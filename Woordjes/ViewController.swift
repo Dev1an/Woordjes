@@ -48,14 +48,15 @@ class ViewController: UITableViewController {
 			cell.textLabel?.text = woord.value
 		}
 	}
-		
+	
 	@IBAction func addWord(_ sender: AnyObject) {
 		//1. Create the alert controller.
 		let alert = UIAlertController(title: "Nieuw woord", message: "Voeg een nieuw woord toe", preferredStyle: .alert)
 
 		//2. Add the text field. You can configure it however you need.
 		alert.addTextField { (textField) in
-			textField.text = "Some default text."
+			textField.text = "woordje"
+			textField.delegate = self
 		}
 		
 		// 3. Grab the value from the text field, and print it when the user clicks OK.
@@ -73,6 +74,22 @@ class ViewController: UITableViewController {
 		// TODO: Dispose of any resources that can be recreated.
 	}
 }
+
+
+
+
+
+
+// MARK: - Text field delegate
+extension ViewController: UITextFieldDelegate {
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+		DispatchQueue.main.async {
+			textField.selectAll(nil)
+		}
+		return true
+	}
+}
+
 
 
 
