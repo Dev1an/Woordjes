@@ -17,15 +17,6 @@ let notificationCenter = NotificationCenter.default
 
 var externalWindow: UIWindow?
 
-func createWindow(forExternalScreen screen: UIScreen) {
-	externalWindow = UIWindow(frame: screen.bounds)
-	externalWindow!.screen = screen
-	
-	externalWindow!.rootViewController = ExternalView(nibName: "ExternalView", bundle: nil)
-	externalWindow!.windowLevel = UIWindowLevelNormal
-	externalWindow!.isHidden = false
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -38,44 +29,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			createWindow(forExternalScreen: UIScreen.screens.last!)
 		}
 		
-		let cloudContainer = CKContainer.default()
-		
 		cloudContainer.accountStatus { status, error in
 			if status == .available {
-				let privateDatabase = cloudContainer.privateCloudDatabase
 				
-				let myWordsZone = CKRecordZone(zoneName: "My word list")
-				let zoneID = myWordsZone.zoneID
-				
-				let query = CKQuery(recordType: "Word", predicate: NSPredicate(value: true))
-				privateDatabase.perform(query, inZoneWith: zoneID) { records, error in
-					print(records?.map({$0["value"]!}))
-				}
-				
-//				privateDatabase.delete(withSubscriptionID: "FB0FDD8A-8A82-4D76-880F-47914ED3D6C6") { subscriptionId, error in
+				fetchCloudWords()
+								
+//				let subscription = CKRecordZoneSubscription(zoneID: zoneID)
+//				let notificationInfo = CKNotificationInfo()
+//				notificationInfo.shouldBadge = true
+//				notificationInfo.alertLocalizationKey = "Nieuwe woorden"
+//				subscription.notificationInfo = notificationInfo
+//				privateDatabase.save(subscription) { subscription, error in
 //					if let error = error {
-//						print("❗error while deleting subscription")
+//						print("❗CloudKit subscription error")
 //						print(error)
-//					} else {
-//						print("✅ deleted subscription")
 //					}
 //				}
 				
-				let subscription = CKRecordZoneSubscription(zoneID: zoneID)
-				let notificationInfo = CKNotificationInfo()
-				notificationInfo.shouldBadge = true
-				notificationInfo.alertLocalizationKey = "Nieuwe woorden"
-				subscription.notificationInfo = notificationInfo
-				privateDatabase.save(subscription) { subscription, error in
-					if let error = error {
-						print("❗CloudKit subscription error")
-						print(error)
-					}
-				}
-				
-				
 			} else {
-				print("Use an iCloud account")
+				print("❗Use an iCloud account")
 			}
 		}
 		
@@ -89,15 +61,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-		print("❗ failed to register for remote push notifications")
+		print("❗failed to register for remote push notifications")
 		print(error)
 	}
 	
 	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 		let notification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
 		
-		print("Notification!")
-		print(notification.notificationType == .recordZone)
+		print("💡Notification!")
+		print(notification)
+		
+		fetchCloudWords()
+
 	}
 	
 	func applicationWillResignActive(_ application: UIApplication) {

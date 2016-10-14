@@ -2,7 +2,7 @@
 //  Word+CoreDataProperties.swift
 //  Woordjes
 //
-//  Created by Damiaan Dufaux on 9/10/16.
+//  Created by Damiaan Dufaux on 13/10/16.
 //  Copyright © 2016 Damiaan Dufaux. All rights reserved.
 //
 
@@ -22,6 +22,7 @@ extension Word {
     }
 
 	@NSManaged public var value: String
-	@NSManaged public var creationDate: Date
+    @NSManaged public var creationDate: Date
+    @NSManaged public var cloudRecordID: Data?
 
 }

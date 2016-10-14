@@ -17,7 +17,11 @@
 		7478D5291DAAF71D004D2A9B /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */; };
 		7498B80A1DAC2EAA00D7E661 /* ExternalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498B8081DAC2EAA00D7E661 /* ExternalView.swift */; };
 		7498B80B1DAC2EAA00D7E661 /* ExternalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7498B8091DAC2EAA00D7E661 /* ExternalView.xib */; };
+		74A9AC881DAF7C0F00632F27 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */; };
+		74A9AC891DAF7C0F00632F27 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */; };
 		74A9C77C1DAE5697002B164B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A9C77B1DAE5697002B164B /* CloudKit.framework */; };
+		74A9C77F1DAE9302002B164B /* Screen observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9C77E1DAE9302002B164B /* Screen observers.swift */; };
+		74A9C7811DAEA504002B164B /* CloudWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9C7801DAEA504002B164B /* CloudWords.swift */; };
 		74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */; };
 		74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169B01DAA3F76000BDC28 /* ViewController.swift */; };
 		74F169B41DAA3F76000BDC28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F169B21DAA3F76000BDC28 /* Main.storyboard */; };
@@ -25,8 +29,6 @@
 		74F169B91DAA3F76000BDC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F169B81DAA3F76000BDC28 /* Assets.xcassets */; };
 		74F169BC1DAA3F76000BDC28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F169BA1DAA3F76000BDC28 /* LaunchScreen.storyboard */; };
 		74F169C71DAA3F76000BDC28 /* WoordjesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169C61DAA3F76000BDC28 /* WoordjesTests.swift */; };
-		74F169D31DAA423B000BDC28 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */; };
-		74F169D41DAA423B000BDC28 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169D21DAA423B000BDC28 /* Word+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +63,13 @@
 		7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7498B8081DAC2EAA00D7E661 /* ExternalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalView.swift; sourceTree = "<group>"; };
 		7498B8091DAC2EAA00D7E661 /* ExternalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalView.xib; sourceTree = "<group>"; };
+		74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74A9C7791DAE5693002B164B /* Woordjes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woordjes.entitlements; sourceTree = "<group>"; };
 		74A9C77B1DAE5697002B164B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		74A9C77D1DAE58EA002B164B /* CloudKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CloudKit.playground; sourceTree = "<group>"; };
+		74A9C77E1DAE9302002B164B /* Screen observers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Screen observers.swift"; sourceTree = "<group>"; };
+		74A9C7801DAEA504002B164B /* CloudWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudWords.swift; sourceTree = "<group>"; };
 		74F169AB1DAA3F76000BDC28 /* Woordjes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woordjes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F169B01DAA3F76000BDC28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,8 +81,6 @@
 		74F169C21DAA3F76000BDC28 /* WoordjesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoordjesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F169C61DAA3F76000BDC28 /* WoordjesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoordjesTests.swift; sourceTree = "<group>"; };
 		74F169C81DAA3F76000BDC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
-		74F169D21DAA423B000BDC28 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,15 +177,17 @@
 			children = (
 				74A9C7791DAE5693002B164B /* Woordjes.entitlements */,
 				74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */,
+				74A9C7801DAEA504002B164B /* CloudWords.swift */,
+				74A9C77E1DAE9302002B164B /* Screen observers.swift */,
 				74F169B01DAA3F76000BDC28 /* ViewController.swift */,
 				7498B8081DAC2EAA00D7E661 /* ExternalView.swift */,
 				7498B8091DAC2EAA00D7E661 /* ExternalView.xib */,
 				74F169B21DAA3F76000BDC28 /* Main.storyboard */,
 				74F169B81DAA3F76000BDC28 /* Assets.xcassets */,
-				74F169D11DAA423B000BDC28 /* Word+CoreDataClass.swift */,
-				74F169D21DAA423B000BDC28 /* Word+CoreDataProperties.swift */,
 				74F169BA1DAA3F76000BDC28 /* LaunchScreen.storyboard */,
 				74F169BD1DAA3F76000BDC28 /* Info.plist */,
+				74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */,
+				74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */,
 				74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */,
 			);
 			path = Woordjes;
@@ -400,9 +406,11 @@
 				74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */,
 				7498B80A1DAC2EAA00D7E661 /* ExternalView.swift in Sources */,
 				74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */,
+				74A9AC881DAF7C0F00632F27 /* Word+CoreDataClass.swift in Sources */,
 				74F169B71DAA3F76000BDC28 /* Woordjes.xcdatamodeld in Sources */,
-				74F169D41DAA423B000BDC28 /* Word+CoreDataProperties.swift in Sources */,
-				74F169D31DAA423B000BDC28 /* Word+CoreDataClass.swift in Sources */,
+				74A9C7811DAEA504002B164B /* CloudWords.swift in Sources */,
+				74A9C77F1DAE9302002B164B /* Screen observers.swift in Sources */,
+				74A9AC891DAF7C0F00632F27 /* Word+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

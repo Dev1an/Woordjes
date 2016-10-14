@@ -9,19 +9,6 @@
 import UIKit
 import CoreData
 
-var screenConnectionObserver, screenDisconnectionObserver: NSObjectProtocol?
-
-func addObservers() {
-	print("adding observers")
-	screenConnectionObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIScreenDidConnect, object: nil, queue: OperationQueue.main) { notification in
-		createWindow(forExternalScreen: notification.object as! UIScreen)
-	}
-	screenDisconnectionObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIScreenDidDisconnect, object: nil, queue: OperationQueue.main) { _ in
-		externalWindow?.isHidden = true
-		fullScreenLabel = nil
-	}
-}
-
 class ViewController: UITableViewController {
 
 	var fetchedWordsController: NSFetchedResultsController<Word>?
@@ -39,7 +26,7 @@ class ViewController: UITableViewController {
 		
 		try? fetchedWordsController?.performFetch()
 		
-		addObservers()
+		addScreenObservers()
 	}
 	
 	func configureCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -59,10 +46,9 @@ class ViewController: UITableViewController {
 			textField.delegate = self
 		}
 		
-		// 3. Grab the value from the text field, and print it when the user clicks OK.
+		// 3. Grab the value from the text field, add it when the user clicks OK.
 		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-			Word(alert.textFields!.first!.text!, insertInto: dataContainer.viewContext)
-			appDelegate.saveContext()
+			add(word: alert.textFields!.first!.text!)
 		}))
 		
 		// 4. Present the alert.
@@ -100,8 +86,7 @@ extension ViewController {
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			if let controller = fetchedWordsController {
-				dataContainer.viewContext.delete(controller.object(at: indexPath))
-				appDelegate.saveContext()
+//				delete(word: controller.object(at: indexPath))
 			}
 		}
 	}
