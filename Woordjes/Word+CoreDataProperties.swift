@@ -23,6 +23,18 @@ extension Word {
 
 	@NSManaged public var value: String
     @NSManaged public var creationDate: Date
-    @NSManaged public var cloudRecordID: Data?
-
+	@NSManaged public var cloudRecordName: String?
+	@NSManaged public var cloudRecordZoneName: String?
+	@NSManaged public var cloudRecordZoneOwnerName: String?
+	
+	var cloudID: (String?, String?, String?) {
+		get {
+			return (cloudRecordName, cloudRecordZoneName, cloudRecordZoneOwnerName)
+		}
+		set {
+			cloudRecordName = newValue.0
+			cloudRecordZoneName = newValue.1
+			cloudRecordZoneOwnerName = newValue.2
+		}
+	}
 }

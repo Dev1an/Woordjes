@@ -66,10 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		let notification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
+		
+//		let notification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
 		
 		print("💡Notification!")
-		print(notification)
 		
 		fetchCloudWords()
 
@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 		// Saves changes in the application's managed object context before the application terminates.
-		self.saveContext()
+//		self.saveContext()
 	}
 
 	// MARK: - Core Data stack

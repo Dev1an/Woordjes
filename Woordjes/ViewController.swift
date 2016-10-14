@@ -86,7 +86,7 @@ extension ViewController {
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			if let controller = fetchedWordsController {
-//				delete(word: controller.object(at: indexPath))
+				remove(word: controller.object(at: indexPath))
 			}
 		}
 	}
@@ -132,6 +132,7 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 	
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.beginUpdates()
+		print("fetched results controller will change contents")
 	}
 	
 	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
