@@ -140,7 +140,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	            let nserror = error as NSError
 	            NSApplication.shared().presentError(nserror)
 	        }
-	    }
+		} else {
+			saveToken()
+		}
 	}
 	
 	func saveContext() {
