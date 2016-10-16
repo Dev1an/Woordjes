@@ -9,12 +9,15 @@
 import Cocoa
 
 class DesktopViewController: NSViewController {
+	@IBOutlet weak var wordColumn: NSTableColumn!
 
 	var managedObjectContext = localContext
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		print("sort descriptor")
+		print(wordColumn.sortDescriptorPrototype?.key)
 		// Do any additional setup after loading the view.
 	}
 

@@ -692,7 +692,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="iVj-ju-hLq" viewBased="YES" id="13y-eN-CVG">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="253"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="247"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -776,6 +776,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="et0-hv-Ces" name="content" keyPath="arrangedObjects" id="NvS-dk-A24"/>
+                                                <binding destination="et0-hv-Ces" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="NvS-dk-A24" id="Mpt-Bu-mRb"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -789,7 +790,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="iVj-ju-hLq">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -801,6 +802,9 @@
                             <constraint firstItem="MKU-Ce-dhS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="iGO-y1-1YE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="wordColumn" destination="YyZ-nA-cbP" id="hkZ-va-aqV"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController mode="entity" entityName="Word" automaticallyPreparesContent="YES" id="et0-hv-Ces">
