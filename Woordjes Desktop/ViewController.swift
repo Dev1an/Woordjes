@@ -16,8 +16,6 @@ class DesktopViewController: NSViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		print("sort descriptor")
-		print(wordColumn.sortDescriptorPrototype?.key)
 		// Do any additional setup after loading the view.
 	}
 
