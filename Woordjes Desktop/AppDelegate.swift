@@ -7,14 +7,30 @@
 //
 
 import Cocoa
+import CloudKit
+
+let appDelegate = NSApplication.shared().delegate! as! AppDelegate
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		// Insert code here to initialize your application
+		print(cloudContainer)
+		cloudContainer.accountStatus { status, error in
+			if status == .available {
+				
+				unarchiveSavedToken()
+				
+				fetchCloudWords()
+				
+//				subscribeToWords()
+				
+			} else {
+				print("❗Use an iCloud account")
+			}
+		}
+		
+		NSApplication.shared().registerForRemoteNotifications(matching: NSRemoteNotificationType.badge)
 	}
 
 	func applicationWillTerminate(_ aNotification: Notification) {
@@ -32,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	lazy var managedObjectModel: NSManagedObjectModel = {
 	    // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-	    let modelURL = Bundle.main.url(forResource: "Woordjes_Desktop", withExtension: "momd")!
+	    let modelURL = Bundle.main.url(forResource: "Woordjes", withExtension: "momd")!
 	    return NSManagedObjectModel(contentsOf: modelURL)!
 	}()
 
@@ -68,6 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	    if failError == nil {
 	        coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
 	        let url = self.applicationDocumentsDirectory.appendingPathComponent("Woordjes_Desktop.storedata")
+			print(url)
 	        do {
 	            try coordinator!.addPersistentStore(ofType: NSXMLStoreType, configurationName: nil, at: url, options: nil)
 	        } catch {
@@ -103,6 +120,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	    managedObjectContext.persistentStoreCoordinator = coordinator
 	    return managedObjectContext
 	}()
+	
+	func localContext() -> NSManagedObjectContext {
+		return managedObjectContext
+	}
 
 	// MARK: - Core Data Saving and Undo support
 
@@ -114,11 +135,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	    if managedObjectContext.hasChanges {
 	        do {
 	            try managedObjectContext.save()
+				saveToken()
 	        } catch {
 	            let nserror = error as NSError
 	            NSApplication.shared().presentError(nserror)
 	        }
 	    }
+	}
+	
+	func saveContext() {
+		saveAction(self)
 	}
 
 	func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
@@ -167,5 +193,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	    return .terminateNow
 	}
 
+	func application(_ application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		print("❗failed to register for remote push notifications")
+		print(error)
+	}
+	
+	func application(_ application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		print("✅ registered for remote push notifications")
+	}
+	
+	func application(_ application: NSApplication, didReceiveRemoteNotification userInfo: [String : Any]) {
+		print("💡Notification")
+		fetchCloudWords()
+	}
 }
 

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7425BD571DB3B95D00D14411 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7425BD561DB3B95D00D14411 /* CloudKit.framework */; };
+		7425BD591DB3C2C000D14411 /* CloudSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425BD581DB3C2C000D14411 /* CloudSubscription.swift */; };
+		7425BD5A1DB3C2C000D14411 /* CloudSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425BD581DB3C2C000D14411 /* CloudSubscription.swift */; };
 		7478D5071DAAF69C004D2A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5061DAAF69C004D2A9B /* AppDelegate.swift */; };
 		7478D5091DAAF69C004D2A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5081DAAF69C004D2A9B /* ViewController.swift */; };
-		7478D50C1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7478D50A1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld */; };
 		7478D50E1DAAF69C004D2A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7478D50D1DAAF69C004D2A9B /* Assets.xcassets */; };
 		7478D5111DAAF69D004D2A9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7478D50F1DAAF69D004D2A9B /* Main.storyboard */; };
 		7478D51C1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D51B1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift */; };
-		7478D5281DAAF719004D2A9B /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */; };
-		7478D5291DAAF71D004D2A9B /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */; };
 		7498B80A1DAC2EAA00D7E661 /* ExternalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498B8081DAC2EAA00D7E661 /* ExternalView.swift */; };
 		7498B80B1DAC2EAA00D7E661 /* ExternalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7498B8091DAC2EAA00D7E661 /* ExternalView.xib */; };
 		74A9AC881DAF7C0F00632F27 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */; };
@@ -22,6 +22,16 @@
 		74A9C77C1DAE5697002B164B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74A9C77B1DAE5697002B164B /* CloudKit.framework */; };
 		74A9C77F1DAE9302002B164B /* Screen observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9C77E1DAE9302002B164B /* Screen observers.swift */; };
 		74A9C7811DAEA504002B164B /* CloudWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9C7801DAEA504002B164B /* CloudWords.swift */; };
+		74C9256F1DB3A9BD00A736E1 /* CloudWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9C7801DAEA504002B164B /* CloudWords.swift */; };
+		74C925701DB3A9C000A736E1 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */; };
+		74C925711DB3A9C200A736E1 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */; };
+		74C925721DB3A9C500A736E1 /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */; };
+		74C925731DB3A9C800A736E1 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */; };
+		74C925741DB3A9CE00A736E1 /* Woordjes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */; };
+		74C925761DB3ABEB00A736E1 /* LocalWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C925751DB3ABEB00A736E1 /* LocalWords.swift */; };
+		74C925771DB3ABEB00A736E1 /* LocalWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C925751DB3ABEB00A736E1 /* LocalWords.swift */; };
+		74EADAA31DB11E2E008CA468 /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */; };
+		74EADAA41DB11E2E008CA468 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */; };
 		74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */; };
 		74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169B01DAA3F76000BDC28 /* ViewController.swift */; };
 		74F169B41DAA3F76000BDC28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F169B21DAA3F76000BDC28 /* Main.storyboard */; };
@@ -49,27 +59,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7425BD551DB3B94A00D14411 /* Woordjes Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Woordjes Desktop.entitlements"; sourceTree = "<group>"; };
+		7425BD561DB3B95D00D14411 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		7425BD581DB3C2C000D14411 /* CloudSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudSubscription.swift; sourceTree = "<group>"; };
 		7478D5041DAAF69C004D2A9B /* Woordjes Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woordjes Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7478D5061DAAF69C004D2A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7478D5081DAAF69C004D2A9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7478D50B1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Woordjes_Desktop.xcdatamodel; sourceTree = "<group>"; };
 		7478D50D1DAAF69C004D2A9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7478D5101DAAF69D004D2A9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7478D5121DAAF69D004D2A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7478D5171DAAF69D004D2A9B /* Woordjes DesktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Woordjes DesktopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7478D51B1DAAF69D004D2A9B /* Woordjes_DesktopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Woordjes_DesktopTests.swift; sourceTree = "<group>"; };
 		7478D51D1DAAF69D004D2A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7498B8081DAC2EAA00D7E661 /* ExternalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalView.swift; sourceTree = "<group>"; };
 		7498B8091DAC2EAA00D7E661 /* ExternalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalView.xib; sourceTree = "<group>"; };
-		74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
-		74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "Woordjes/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "Woordjes/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74A9C7791DAE5693002B164B /* Woordjes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Woordjes.entitlements; sourceTree = "<group>"; };
 		74A9C77B1DAE5697002B164B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		74A9C77D1DAE58EA002B164B /* CloudKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CloudKit.playground; sourceTree = "<group>"; };
 		74A9C77E1DAE9302002B164B /* Screen observers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Screen observers.swift"; sourceTree = "<group>"; };
-		74A9C7801DAEA504002B164B /* CloudWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudWords.swift; sourceTree = "<group>"; };
+		74A9C7801DAEA504002B164B /* CloudWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudWords.swift; path = Woordjes/CloudWords.swift; sourceTree = "<group>"; };
+		74C925751DB3ABEB00A736E1 /* LocalWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalWords.swift; sourceTree = "<group>"; };
+		74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "List+CoreDataClass.swift"; path = "Woordjes/List+CoreDataClass.swift"; sourceTree = "<group>"; };
+		74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "List+CoreDataProperties.swift"; path = "Woordjes/List+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74F169AB1DAA3F76000BDC28 /* Woordjes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woordjes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F169B01DAA3F76000BDC28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7425BD571DB3B95D00D14411 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,14 +133,12 @@
 		7478D5051DAAF69C004D2A9B /* Woordjes Desktop */ = {
 			isa = PBXGroup;
 			children = (
+				7425BD551DB3B94A00D14411 /* Woordjes Desktop.entitlements */,
 				7478D5061DAAF69C004D2A9B /* AppDelegate.swift */,
 				7478D5081DAAF69C004D2A9B /* ViewController.swift */,
 				7478D50D1DAAF69C004D2A9B /* Assets.xcassets */,
-				7478D5241DAAF6DE004D2A9B /* Word+CoreDataClass.swift */,
-				7478D5251DAAF6DE004D2A9B /* Word+CoreDataProperties.swift */,
 				7478D50F1DAAF69D004D2A9B /* Main.storyboard */,
 				7478D5121DAAF69D004D2A9B /* Info.plist */,
-				7478D50A1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld */,
 			);
 			path = "Woordjes Desktop";
 			sourceTree = "<group>";
@@ -143,14 +155,31 @@
 		74A9C77A1DAE5697002B164B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7425BD561DB3B95D00D14411 /* CloudKit.framework */,
 				74A9C77B1DAE5697002B164B /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		74C9256E1DB3A99500A736E1 /* Shared word model */ = {
+			isa = PBXGroup;
+			children = (
+				74A9C7801DAEA504002B164B /* CloudWords.swift */,
+				7425BD581DB3C2C000D14411 /* CloudSubscription.swift */,
+				74C925751DB3ABEB00A736E1 /* LocalWords.swift */,
+				74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */,
+				74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */,
+				74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */,
+				74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */,
+				74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */,
+			);
+			name = "Shared word model";
+			sourceTree = "<group>";
+		};
 		74F169A21DAA3F76000BDC28 = {
 			isa = PBXGroup;
 			children = (
+				74C9256E1DB3A99500A736E1 /* Shared word model */,
 				74A9C77D1DAE58EA002B164B /* CloudKit.playground */,
 				74F169AD1DAA3F76000BDC28 /* Woordjes */,
 				74F169C51DAA3F76000BDC28 /* WoordjesTests */,
@@ -177,7 +206,6 @@
 			children = (
 				74A9C7791DAE5693002B164B /* Woordjes.entitlements */,
 				74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */,
-				74A9C7801DAEA504002B164B /* CloudWords.swift */,
 				74A9C77E1DAE9302002B164B /* Screen observers.swift */,
 				74F169B01DAA3F76000BDC28 /* ViewController.swift */,
 				7498B8081DAC2EAA00D7E661 /* ExternalView.swift */,
@@ -186,9 +214,6 @@
 				74F169B81DAA3F76000BDC28 /* Assets.xcassets */,
 				74F169BA1DAA3F76000BDC28 /* LaunchScreen.storyboard */,
 				74F169BD1DAA3F76000BDC28 /* Info.plist */,
-				74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */,
-				74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */,
-				74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */,
 			);
 			path = Woordjes;
 			sourceTree = "<group>";
@@ -289,6 +314,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7TD9A665TC;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					7478D5161DAAF69D004D2A9B = {
 						CreatedOnToolsVersion = 8.0;
@@ -384,10 +417,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7478D5091DAAF69C004D2A9B /* ViewController.swift in Sources */,
+				74C925731DB3A9C800A736E1 /* List+CoreDataProperties.swift in Sources */,
+				74C925771DB3ABEB00A736E1 /* LocalWords.swift in Sources */,
 				7478D5071DAAF69C004D2A9B /* AppDelegate.swift in Sources */,
-				7478D50C1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld in Sources */,
-				7478D5291DAAF71D004D2A9B /* Word+CoreDataProperties.swift in Sources */,
-				7478D5281DAAF719004D2A9B /* Word+CoreDataClass.swift in Sources */,
+				7425BD5A1DB3C2C000D14411 /* CloudSubscription.swift in Sources */,
+				74C925741DB3A9CE00A736E1 /* Woordjes.xcdatamodeld in Sources */,
+				74C925701DB3A9C000A736E1 /* Word+CoreDataClass.swift in Sources */,
+				74C9256F1DB3A9BD00A736E1 /* CloudWords.swift in Sources */,
+				74C925721DB3A9C500A736E1 /* List+CoreDataClass.swift in Sources */,
+				74C925711DB3A9C200A736E1 /* Word+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,13 +442,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F169B11DAA3F76000BDC28 /* ViewController.swift in Sources */,
+				74EADAA41DB11E2E008CA468 /* List+CoreDataProperties.swift in Sources */,
 				7498B80A1DAC2EAA00D7E661 /* ExternalView.swift in Sources */,
 				74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */,
 				74A9AC881DAF7C0F00632F27 /* Word+CoreDataClass.swift in Sources */,
 				74F169B71DAA3F76000BDC28 /* Woordjes.xcdatamodeld in Sources */,
+				7425BD591DB3C2C000D14411 /* CloudSubscription.swift in Sources */,
 				74A9C7811DAEA504002B164B /* CloudWords.swift in Sources */,
 				74A9C77F1DAE9302002B164B /* Screen observers.swift in Sources */,
+				74EADAA31DB11E2E008CA468 /* List+CoreDataClass.swift in Sources */,
 				74A9AC891DAF7C0F00632F27 /* Word+CoreDataProperties.swift in Sources */,
+				74C925761DB3ABEB00A736E1 /* LocalWords.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,13 +511,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = "Woordjes Desktop/Woordjes Desktop.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7TD9A665TC;
 				INFOPLIST_FILE = "Woordjes Desktop/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.Woordjes-Desktop";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devian.Woordjes.desktop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 3.0;
@@ -486,13 +529,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = "Woordjes Desktop/Woordjes Desktop.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7TD9A665TC;
 				INFOPLIST_FILE = "Woordjes Desktop/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devian.Woordjes-Desktop";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devian.Woordjes.desktop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 3.0;
@@ -739,23 +783,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7478D50A1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7478D50B1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodel */,
-			);
-			currentVersion = 7478D50B1DAAF69C004D2A9B /* Woordjes_Desktop.xcdatamodel */;
-			path = Woordjes_Desktop.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				74F169B61DAA3F76000BDC28 /* Woordjes.xcdatamodel */,
 			);
 			currentVersion = 74F169B61DAA3F76000BDC28 /* Woordjes.xcdatamodel */;
-			path = Woordjes.xcdatamodeld;
+			name = Woordjes.xcdatamodeld;
+			path = Woordjes/Woordjes.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

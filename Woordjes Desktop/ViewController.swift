@@ -10,9 +10,11 @@ import Cocoa
 
 class DesktopViewController: NSViewController {
 
+	var managedObjectContext = localContext
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		// Do any additional setup after loading the view.
 	}
 

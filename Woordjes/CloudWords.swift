@@ -9,9 +9,8 @@
 import CloudKit
 import CoreData
 import Dispatch
-import UIKit
 
-let cloudContainer = CKContainer.default()
+let cloudContainer = CKContainer(identifier: "iCloud.com.devian.Woordjes")
 let privateDatabase = cloudContainer.privateCloudDatabase
 
 let myWordsZone = CKRecordZone(zoneName: "My word list")
@@ -24,6 +23,7 @@ var handlers = [() -> ()]()
 
 func fetchCloudWords() {
 	let fetchChanges = CKFetchRecordZoneChangesOperation(recordZoneIDs: [zoneID], optionsByRecordZoneID: [zoneID: CKFetchRecordZoneChangesOptions()])
+	fetchChanges.container = cloudContainer
 	fetchChanges.fetchAllChanges = true
 	fetchChanges.optionsByRecordZoneID![zoneID]!.previousServerChangeToken = cloudSyncToken
 	fetchChanges.fetchRecordZoneChangesCompletionBlock = { error in
@@ -44,7 +44,7 @@ func fetchCloudWords() {
 					word!.value = record["value"] as! String
 				} else {
 					DispatchQueue.main.async {
-						let managedObject = Word(record["value"] as! String, insertInto: dataContainer.viewContext)
+						let managedObject = Word(record["value"] as! String, insertInto: localContext)
 						managedObject.cloudID = record.recordID.tuple
 						managedObject.creationDate = record.creationDate!
 					}
@@ -60,7 +60,7 @@ func fetchCloudWords() {
 		print("cloud deletion \(id, string)")
 		Word.by(id: id) { word in
 			print("delete \(word.value) locally")
-			DispatchQueue.main.async {dataContainer.viewContext.delete(word)}
+			DispatchQueue.main.async {localContext.delete(word)}
 		}
 	}
 	fetchChanges.recordZoneFetchCompletionBlock = { id, changeToken, data, moreComing, error in
@@ -82,8 +82,9 @@ func fetchCloudWords() {
 func add(word: String) {
 	let record = CKRecord(recordType: "Word", zoneID: zoneID)
 	record["value"] = word as NSString
+	record.setParent(myList)
 	
-	let managedObject = Word(word, insertInto: dataContainer.viewContext)
+	let managedObject = Word(word, insertInto: localContext)
 	managedObject.cloudID = record.recordID.tuple
 	managedObject.creationDate = Date()
 
@@ -91,7 +92,7 @@ func add(word: String) {
 		if let error = error {
 			print("❗error while saving a new word in the cloud")
 			print(error)
-			dataContainer.viewContext.delete(managedObject)
+			localContext.delete(managedObject)
 		} else {
 			if let date = record?.creationDate { managedObject.creationDate = date }
 		}
@@ -107,7 +108,7 @@ func remove(word: Word) {
 				print(error)
 			}
 			DispatchQueue.main.async {
-				dataContainer.viewContext.delete(word)
+				localContext.delete(word)
 			}
 		}
 	}

@@ -18,9 +18,9 @@ class ViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let request = NSFetchRequest<Word>(entityName: "Word")
+		let request = Word.fetchAll()
 		request.sortDescriptors = [NSSortDescriptor(key: "value", ascending: true)]
-		fetchedWordsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: dataContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+		fetchedWordsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: localContext, sectionNameKeyPath: nil, cacheName: nil)
 		
 		fetchedWordsController!.delegate = self
 		

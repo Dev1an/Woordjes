@@ -11,7 +11,6 @@ import CoreData
 import CloudKit
 import UserNotifications
 
-let defaults = UserDefaults()
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let dataContainer = appDelegate.persistentContainer
 let notificationCenter = NotificationCenter.default
@@ -33,27 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		cloudContainer.accountStatus { status, error in
 			if status == .available {
 				
-				if let archivedToken = defaults.object(forKey: cloudSyncTokenKey) as? Data {
-					if let token = NSKeyedUnarchiver.unarchiveObject(with: archivedToken) as? CKServerChangeToken {
-						cloudSyncToken = token
-						print("loaded token")
-						print(cloudSyncToken)
-					}
-				}
+				unarchiveSavedToken()
 				
 				fetchCloudWords()
+				
+				privateDatabase.save(myList) { myWordListRecord, error in
+					if let error = error {
+						print("error while saving my word list")
+						print(error)
+					}
+					print("saved my word list")
+				}
 								
-//				let subscription = CKRecordZoneSubscription(zoneID: zoneID)
-//				let notificationInfo = CKNotificationInfo()
-//				notificationInfo.shouldBadge = true
-//				notificationInfo.alertLocalizationKey = "Nieuwe woorden"
-//				subscription.notificationInfo = notificationInfo
-//				privateDatabase.save(subscription) { subscription, error in
-//					if let error = error {
-//						print("❗CloudKit subscription error")
-//						print(error)
-//					}
-//				}
 				
 			} else {
 				print("❗Use an iCloud account")
@@ -78,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 //		let notification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
 		
-		print("💡Notification!")
+		print("💡Notification")
 		
 		fetchCloudWords()
 		completionHandler(.newData)
@@ -135,17 +125,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	    })
 	    return container
 	}()
+	
+	func localContext() -> NSManagedObjectContext {
+		return persistentContainer.viewContext
+	}
 
 	// MARK: - Core Data Saving support
 
 	func saveContext () {
 		print("save context")
 
-		if let token = cloudSyncToken {
-			print(cloudSyncToken)
-			let archivedToken = NSKeyedArchiver.archivedData(withRootObject:  token)
-			defaults.set(archivedToken, forKey: cloudSyncTokenKey)
-		}
+		saveToken()
 
 	    let context = persistentContainer.viewContext
 	    if context.hasChanges {
