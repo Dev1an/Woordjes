@@ -16,6 +16,8 @@ let privateDatabase = cloudContainer.privateCloudDatabase
 
 let myWordsZone = CKRecordZone(zoneName: "My word list")
 let zoneID = myWordsZone.zoneID
+let myList = CKRecord(recordType: "WordList", recordID: CKRecordID(recordName: "My word list", zoneID: zoneID))
+
 var cloudSyncTokenKey = "cloudSyncToken"
 var cloudSyncToken: CKServerChangeToken?
 var handlers = [() -> ()]()
@@ -33,22 +35,30 @@ func fetchCloudWords() {
 		}
 	}
 	fetchChanges.recordChangedBlock = { record in
-		if record.recordType == "Word" {
+		switch record.recordType {
+		case "Word":
 			print("\(record["value"]!)\t(\(record.creationDate!))")
 			
-			DispatchQueue.main.async {
-				let managedObject = Word(record["value"] as! String, insertInto: dataContainer.viewContext)
-				managedObject.cloudID = record.recordID.tuple
-				managedObject.creationDate = record.creationDate!
+			Word.exists(id: record.recordID) { alreadyInLocalDatabase, word in
+				if alreadyInLocalDatabase {
+					word!.value = record["value"] as! String
+				} else {
+					DispatchQueue.main.async {
+						let managedObject = Word(record["value"] as! String, insertInto: dataContainer.viewContext)
+						managedObject.cloudID = record.recordID.tuple
+						managedObject.creationDate = record.creationDate!
+					}
+				}
 			}
+		case "WordList":
+			print("A word list has been changed")
+		default:
+			print("record of unknown type has been changed")
 		}
 	}
 	fetchChanges.recordWithIDWasDeletedBlock = { id, string in
 		print("cloud deletion \(id, string)")
-		let wordToDelete = NSFetchRequest<Word>(entityName: "Word")
-		wordToDelete.predicate = NSPredicate(format: "cloudRecordName == %@ AND cloudRecordZoneName == %@ AND cloudRecordZoneOwnerName == %@", id.tuple.0!, id.tuple.1!, id.tuple.2!)
-		wordToDelete.fetchLimit = 1
-		if let word = (try? dataContainer.viewContext.fetch(wordToDelete))?.first {
+		Word.by(id: id) { word in
 			print("delete \(word.value) locally")
 			DispatchQueue.main.async {dataContainer.viewContext.delete(word)}
 		}
@@ -72,9 +82,11 @@ func fetchCloudWords() {
 func add(word: String) {
 	let record = CKRecord(recordType: "Word", zoneID: zoneID)
 	record["value"] = word as NSString
-	let managedObject = Word(record["value"] as! String, insertInto: dataContainer.viewContext)
+	
+	let managedObject = Word(word, insertInto: dataContainer.viewContext)
 	managedObject.cloudID = record.recordID.tuple
 	managedObject.creationDate = Date()
+
 	privateDatabase.save(record) { record, error in
 		if let error = error {
 			print("❗error while saving a new word in the cloud")
