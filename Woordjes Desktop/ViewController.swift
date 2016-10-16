@@ -9,9 +9,17 @@
 import Cocoa
 
 class DesktopViewController: NSViewController {
-	@IBOutlet weak var wordColumn: NSTableColumn!
 
+	@IBOutlet var wordsArrayController: NSArrayController!
 	var managedObjectContext = localContext
+	
+	override func deleteBackward(_ sender: Any?) {
+		remove(word: wordsArrayController.selectedObjects.first as! Word)
+	}
+	
+	override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+		return wordsArrayController.selectionIndexes.count > 0
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

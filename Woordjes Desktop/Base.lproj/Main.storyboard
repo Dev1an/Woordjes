@@ -155,9 +155,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Delete" id="pa3-QI-u2k">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                                             <connections>
-                                                <action selector="delete:" target="Ady-hI-5gd" id="0Mk-Ml-PaM"/>
+                                                <action selector="deleteBackward:" target="Ady-hI-5gd" id="Eiu-6v-CMG"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Select All" keyEquivalent="a" id="Ruw-6m-B2m">
@@ -735,7 +737,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="108" minWidth="10" maxWidth="3.4028234663852886e+38" id="WFq-E4-NeC">
+                                                <tableColumn identifier="" editable="NO" width="108" minWidth="10" maxWidth="3.4028234663852886e+38" id="WFq-E4-NeC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Toevoegingsdatum">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -776,7 +778,8 @@
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="et0-hv-Ces" name="content" keyPath="arrangedObjects" id="NvS-dk-A24"/>
-                                                <binding destination="et0-hv-Ces" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="NvS-dk-A24" id="Mpt-Bu-mRb"/>
+                                                <binding destination="et0-hv-Ces" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="NvS-dk-A24" id="M2i-wt-dWE"/>
+                                                <binding destination="et0-hv-Ces" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="M2i-wt-dWE" id="SIg-4M-t6N"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -803,7 +806,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="wordColumn" destination="YyZ-nA-cbP" id="hkZ-va-aqV"/>
+                        <outlet property="wordsArrayController" destination="et0-hv-Ces" id="amb-tQ-ANL"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
