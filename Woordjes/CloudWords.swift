@@ -9,25 +9,27 @@
 import CloudKit
 import CoreData
 import Dispatch
+import UIKit
 
 let cloudContainer = CKContainer.default()
 let privateDatabase = cloudContainer.privateCloudDatabase
 
 let myWordsZone = CKRecordZone(zoneName: "My word list")
 let zoneID = myWordsZone.zoneID
-var lastWordsToken: CKServerChangeToken?
+var cloudSyncTokenKey = "cloudSyncToken"
+var cloudSyncToken: CKServerChangeToken?
 var handlers = [() -> ()]()
 
 func fetchCloudWords() {
 	let fetchChanges = CKFetchRecordZoneChangesOperation(recordZoneIDs: [zoneID], optionsByRecordZoneID: [zoneID: CKFetchRecordZoneChangesOptions()])
 	fetchChanges.fetchAllChanges = true
-	fetchChanges.optionsByRecordZoneID![zoneID]!.previousServerChangeToken = lastWordsToken
+	fetchChanges.optionsByRecordZoneID![zoneID]!.previousServerChangeToken = cloudSyncToken
 	fetchChanges.fetchRecordZoneChangesCompletionBlock = { error in
 		if let error = error {
 			print("❗An error occured during fetching")
 			print(error)
 		} else {
-			print("process record zone changes")
+			appDelegate.saveContext()
 		}
 	}
 	fetchChanges.recordChangedBlock = { record in
@@ -61,7 +63,7 @@ func fetchCloudWords() {
 		}
 		if let token = changeToken {
 			print("🔑 Received token")
-			lastWordsToken = token
+			cloudSyncToken = token
 		}
 	}
 	fetchChanges.start()
@@ -72,11 +74,14 @@ func add(word: String) {
 	record["value"] = word as NSString
 	let managedObject = Word(record["value"] as! String, insertInto: dataContainer.viewContext)
 	managedObject.cloudID = record.recordID.tuple
+	managedObject.creationDate = Date()
 	privateDatabase.save(record) { record, error in
 		if let error = error {
 			print("❗error while saving a new word in the cloud")
 			print(error)
 			dataContainer.viewContext.delete(managedObject)
+		} else {
+			if let date = record?.creationDate { managedObject.creationDate = date }
 		}
 	}
 }
