@@ -134,6 +134,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	    if managedObjectContext.hasChanges {
 	        do {
 	            try managedObjectContext.save()
+				print("💾 local context saved")
 				saveToken()
 	        } catch {
 	            let nserror = error as NSError

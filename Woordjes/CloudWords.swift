@@ -122,7 +122,9 @@ func add(word: String) {
 				print(error)
 				DispatchQueue.main.async { localContext.delete(managedObject) }
 			} else {
-				DispatchQueue.main.async { if let date = record?.creationDate { managedObject.creationDate = date } }
+				if let date = record?.creationDate {
+					DispatchQueue.main.async { managedObject.creationDate = date }
+				}
 			}
 		}
 	}
@@ -138,6 +140,7 @@ func remove(word: Word) {
 			}
 			DispatchQueue.main.async {
 				localContext.delete(word)
+				appDelegate.saveContext()
 			}
 		}
 	}
