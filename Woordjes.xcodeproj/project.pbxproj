@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7425BD571DB3B95D00D14411 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7425BD561DB3B95D00D14411 /* CloudKit.framework */; };
-		7425BD591DB3C2C000D14411 /* CloudSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425BD581DB3C2C000D14411 /* CloudSubscription.swift */; };
-		7425BD5A1DB3C2C000D14411 /* CloudSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425BD581DB3C2C000D14411 /* CloudSubscription.swift */; };
 		7425BD5C1DB3CAF900D14411 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7425BD5B1DB3CAF900D14411 /* Readme.md */; };
 		7425BD5D1DB3CAF900D14411 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 7425BD5B1DB3CAF900D14411 /* Readme.md */; };
+		744903FB1DB4122000A8A2A2 /* WordSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744903FA1DB4122000A8A2A2 /* WordSaver.swift */; };
+		744903FD1DB492ED00A8A2A2 /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744903FC1DB492ED00A8A2A2 /* PreferencesController.swift */; };
 		7478D5071DAAF69C004D2A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5061DAAF69C004D2A9B /* AppDelegate.swift */; };
 		7478D5091DAAF69C004D2A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7478D5081DAAF69C004D2A9B /* ViewController.swift */; };
 		7478D50E1DAAF69C004D2A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7478D50D1DAAF69C004D2A9B /* Assets.xcassets */; };
@@ -30,8 +30,6 @@
 		74C925721DB3A9C500A736E1 /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */; };
 		74C925731DB3A9C800A736E1 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */; };
 		74C925741DB3A9CE00A736E1 /* Woordjes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74F169B51DAA3F76000BDC28 /* Woordjes.xcdatamodeld */; };
-		74C925761DB3ABEB00A736E1 /* LocalWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C925751DB3ABEB00A736E1 /* LocalWords.swift */; };
-		74C925771DB3ABEB00A736E1 /* LocalWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C925751DB3ABEB00A736E1 /* LocalWords.swift */; };
 		74EADAA31DB11E2E008CA468 /* List+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */; };
 		74EADAA41DB11E2E008CA468 /* List+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */; };
 		74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F169AE1DAA3F76000BDC28 /* AppDelegate.swift */; };
@@ -63,8 +61,9 @@
 /* Begin PBXFileReference section */
 		7425BD551DB3B94A00D14411 /* Woordjes Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Woordjes Desktop.entitlements"; sourceTree = "<group>"; };
 		7425BD561DB3B95D00D14411 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
-		7425BD581DB3C2C000D14411 /* CloudSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudSubscription.swift; sourceTree = "<group>"; };
 		7425BD5B1DB3CAF900D14411 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		744903FA1DB4122000A8A2A2 /* WordSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSaver.swift; sourceTree = "<group>"; };
+		744903FC1DB492ED00A8A2A2 /* PreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesController.swift; sourceTree = "<group>"; };
 		7478D5041DAAF69C004D2A9B /* Woordjes Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woordjes Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7478D5061DAAF69C004D2A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7478D5081DAAF69C004D2A9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 		74A9C77D1DAE58EA002B164B /* CloudKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CloudKit.playground; sourceTree = "<group>"; };
 		74A9C77E1DAE9302002B164B /* Screen observers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Screen observers.swift"; sourceTree = "<group>"; };
 		74A9C7801DAEA504002B164B /* CloudWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudWords.swift; path = Woordjes/CloudWords.swift; sourceTree = "<group>"; };
-		74C925751DB3ABEB00A736E1 /* LocalWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalWords.swift; sourceTree = "<group>"; };
 		74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "List+CoreDataClass.swift"; path = "Woordjes/List+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74EADAA11DB11E2E008CA468 /* List+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "List+CoreDataProperties.swift"; path = "Woordjes/List+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74F169AB1DAA3F76000BDC28 /* Woordjes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Woordjes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +137,8 @@
 				7425BD551DB3B94A00D14411 /* Woordjes Desktop.entitlements */,
 				7478D5061DAAF69C004D2A9B /* AppDelegate.swift */,
 				7478D5081DAAF69C004D2A9B /* ViewController.swift */,
+				744903FC1DB492ED00A8A2A2 /* PreferencesController.swift */,
+				744903FA1DB4122000A8A2A2 /* WordSaver.swift */,
 				7478D50D1DAAF69C004D2A9B /* Assets.xcassets */,
 				7478D50F1DAAF69D004D2A9B /* Main.storyboard */,
 				7478D5121DAAF69D004D2A9B /* Info.plist */,
@@ -168,8 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				74A9C7801DAEA504002B164B /* CloudWords.swift */,
-				7425BD581DB3C2C000D14411 /* CloudSubscription.swift */,
-				74C925751DB3ABEB00A736E1 /* LocalWords.swift */,
 				74A9AC861DAF7C0F00632F27 /* Word+CoreDataClass.swift */,
 				74A9AC871DAF7C0F00632F27 /* Word+CoreDataProperties.swift */,
 				74EADAA01DB11E2E008CA468 /* List+CoreDataClass.swift */,
@@ -423,14 +421,14 @@
 				7478D5091DAAF69C004D2A9B /* ViewController.swift in Sources */,
 				74C925731DB3A9C800A736E1 /* List+CoreDataProperties.swift in Sources */,
 				7425BD5D1DB3CAF900D14411 /* Readme.md in Sources */,
-				74C925771DB3ABEB00A736E1 /* LocalWords.swift in Sources */,
 				7478D5071DAAF69C004D2A9B /* AppDelegate.swift in Sources */,
-				7425BD5A1DB3C2C000D14411 /* CloudSubscription.swift in Sources */,
 				74C925741DB3A9CE00A736E1 /* Woordjes.xcdatamodeld in Sources */,
 				74C925701DB3A9C000A736E1 /* Word+CoreDataClass.swift in Sources */,
 				74C9256F1DB3A9BD00A736E1 /* CloudWords.swift in Sources */,
 				74C925721DB3A9C500A736E1 /* List+CoreDataClass.swift in Sources */,
 				74C925711DB3A9C200A736E1 /* Word+CoreDataProperties.swift in Sources */,
+				744903FD1DB492ED00A8A2A2 /* PreferencesController.swift in Sources */,
+				744903FB1DB4122000A8A2A2 /* WordSaver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,13 +450,11 @@
 				74F169AF1DAA3F76000BDC28 /* AppDelegate.swift in Sources */,
 				74A9AC881DAF7C0F00632F27 /* Word+CoreDataClass.swift in Sources */,
 				74F169B71DAA3F76000BDC28 /* Woordjes.xcdatamodeld in Sources */,
-				7425BD591DB3C2C000D14411 /* CloudSubscription.swift in Sources */,
 				7425BD5C1DB3CAF900D14411 /* Readme.md in Sources */,
 				74A9C7811DAEA504002B164B /* CloudWords.swift in Sources */,
 				74A9C77F1DAE9302002B164B /* Screen observers.swift in Sources */,
 				74EADAA31DB11E2E008CA468 /* List+CoreDataClass.swift in Sources */,
 				74A9AC891DAF7C0F00632F27 /* Word+CoreDataProperties.swift in Sources */,
-				74C925761DB3ABEB00A736E1 /* LocalWords.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

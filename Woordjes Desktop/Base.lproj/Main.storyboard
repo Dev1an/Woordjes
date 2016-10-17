@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="Ayg-ub-mVV" kind="show" id="rax-9Z-A7W"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -659,12 +663,12 @@ CA
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Woordjes_Desktop" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="75" y="-29"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Woordjes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -677,7 +681,56 @@ CA
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="277"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="9An-T8-stX">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Ayg-ub-mVV" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="iY4-uh-OLp">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                    </window>
+                    <connections>
+                        <segue destination="BqG-TH-8Cw" kind="relationship" relationship="window.shadowedContentViewController" id="bsp-7n-UGu"/>
+                    </connections>
+                </windowController>
+                <customObject id="LXg-S3-xzw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="250"/>
+        </scene>
+        <!--Preferences Controller-->
+        <scene sceneID="9jw-T5-D3a">
+            <objects>
+                <viewController id="BqG-TH-8Cw" customClass="PreferencesController" customModule="Woordjes_Desktop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="jEG-Fz-rEW">
+                        <rect key="frame" x="0.0" y="0.0" width="291" height="61"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-3L-y59">
+                                <rect key="frame" x="14" y="13" width="166" height="32"/>
+                                <buttonCell key="cell" type="push" title="Reset local database" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W1y-1y-nqI">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetDatabase:" target="BqG-TH-8Cw" id="avk-kv-6I7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hma-3L-y59" secondAttribute="trailing" constant="20" id="IHk-tr-3CJ"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hma-3L-y59" secondAttribute="bottom" constant="20" id="PVy-4U-DFe"/>
+                            <constraint firstItem="Hma-3L-y59" firstAttribute="leading" secondItem="jEG-Fz-rEW" secondAttribute="leading" constant="20" id="orh-QI-CRg"/>
+                            <constraint firstItem="Hma-3L-y59" firstAttribute="top" secondItem="jEG-Fz-rEW" secondAttribute="top" constant="20" id="unW-cu-3Iy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="Az3-ah-J8A" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117.5" y="145.5"/>
         </scene>
         <!--Desktop View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -721,13 +774,13 @@ CA
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KLL-JE-Ybc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="323" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Reus" id="wfJ-h0-jpp">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Reus" id="wfJ-h0-jpp">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="2Tv-q2-TF2" name="value" keyPath="objectValue.value" id="AZF-XR-AsN"/>
+                                                                        <binding destination="2Tv-q2-TF2" name="value" keyPath="objectValue.value" id="ARe-IF-3Dr"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -777,6 +830,7 @@ CA
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
+                                                <action trigger="doubleAction" selector="edit:" target="XfG-lQ-9wD" id="iCr-Cp-kEs"/>
                                                 <binding destination="et0-hv-Ces" name="content" keyPath="arrangedObjects" id="NvS-dk-A24"/>
                                                 <binding destination="et0-hv-Ces" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="NvS-dk-A24" id="M2i-wt-dWE"/>
                                                 <binding destination="et0-hv-Ces" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="M2i-wt-dWE" id="SIg-4M-t6N"/>

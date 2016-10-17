@@ -32,7 +32,5 @@ class DesktopViewController: NSViewController {
 		// Update the view, if already loaded.
 		}
 	}
-
-
 }
 

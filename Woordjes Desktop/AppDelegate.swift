@@ -15,7 +15,6 @@ let appDelegate = NSApplication.shared().delegate! as! AppDelegate
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		print(cloudContainer)
 		cloudContainer.accountStatus { status, error in
 			if status == .available {
 				

@@ -17,10 +17,6 @@ let myWordsZone = CKRecordZone(zoneName: "My word list")
 let zoneID = myWordsZone.zoneID
 let myList = CKRecord(recordType: "WordList", recordID: CKRecordID(recordName: "My word list", zoneID: zoneID))
 
-var cloudSyncTokenKey = "cloudSyncToken"
-var cloudSyncToken: CKServerChangeToken?
-var handlers = [() -> ()]()
-
 func fetchCloudWords() {
 	let fetchChanges = CKFetchRecordZoneChangesOperation(recordZoneIDs: [zoneID], optionsByRecordZoneID: [zoneID: CKFetchRecordZoneChangesOptions()])
 	fetchChanges.container = cloudContainer
@@ -37,16 +33,17 @@ func fetchCloudWords() {
 	fetchChanges.recordChangedBlock = { record in
 		switch record.recordType {
 		case "Word":
-			print("\(record["value"]!)\t(\(record.creationDate!))")
+			print("\(record["value"]!)\t changed at (\(record.creationDate!))")
 			
-			Word.exists(id: record.recordID) { alreadyInLocalDatabase, word in
-				if alreadyInLocalDatabase {
-					word!.value = record["value"] as! String
-				} else {
-					DispatchQueue.main.async {
+			DispatchQueue.main.async {
+				Word.exists(id: record.recordID) { alreadyInLocalDatabase, word in
+					if alreadyInLocalDatabase {
+						word!.value = record["value"] as! String
+					} else {
 						let managedObject = Word(record["value"] as! String, insertInto: localContext)
 						managedObject.cloudID = record.recordID.tuple
 						managedObject.creationDate = record.creationDate!
+						print("changed a word")
 					}
 				}
 			}
@@ -113,6 +110,45 @@ func remove(word: Word) {
 		}
 	}
 }
+
+func subscribeToWords() {
+	let subscription = CKRecordZoneSubscription(zoneID: zoneID)
+	let notificationInfo = CKNotificationInfo()
+	notificationInfo.shouldBadge = true
+	notificationInfo.alertLocalizationKey = "Nieuwe woorden"
+	subscription.notificationInfo = notificationInfo
+	privateDatabase.save(subscription) { subscription, error in
+		if let error = error {
+			print("❗CloudKit subscription error")
+			print(error)
+		}
+	}
+}
+
+// MARK: - Tokens
+
+var cloudSyncTokenKey = "cloudSyncToken"
+var cloudSyncToken: CKServerChangeToken?
+
+let localContext = appDelegate.localContext()
+let defaults = UserDefaults()
+
+func unarchiveSavedToken() {
+	if let archivedToken = defaults.object(forKey: cloudSyncTokenKey) as? Data {
+		if let token = NSKeyedUnarchiver.unarchiveObject(with: archivedToken) as? CKServerChangeToken {
+			cloudSyncToken = token
+		}
+	}
+}
+
+func saveToken() {
+	if let token = cloudSyncToken {
+		let archivedToken = NSKeyedArchiver.archivedData(withRootObject:  token)
+		defaults.set(archivedToken, forKey: cloudSyncTokenKey)
+	}
+}
+
+// MARK: -
 
 extension CKRecordID {
 	var tuple: (String?, String?, String?) {
