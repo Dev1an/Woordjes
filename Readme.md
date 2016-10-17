@@ -8,7 +8,11 @@
 - Present word in full screen on a second monitor
 - Synchronize all words inside a private iCloud database in realtime
 
+ ![iOS](Screenshots/iOS.PNG)
+
 ## macOS app
 
-- View words of a list
+ ![macOS](Screenshots/macOS.png)
+
+- View words in a list
 - Synchronize all words inside a private iCloud database in realtime
