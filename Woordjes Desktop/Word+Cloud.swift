@@ -18,15 +18,21 @@ extension Word {
 		set {
 			let oldValue = value
 			value = newValue
-			if let record = cloudRecord {
-				
-				privateDatabase.save(record) { record, error in
+			if let word = cloudRecord {
+				let update = CKModifyRecordsOperation(recordsToSave: [word], recordIDsToDelete: nil)
+				update.database = privateDatabase
+				update.savePolicy = .changedKeys
+				update.modifyRecordsCompletionBlock = { addedWords, removedWords, error in
 					if let error = error {
-						print("❗error while saving a new word in the cloud")
+						print("❗️Error while modifying \(oldValue) to \(self.value)")
 						print(error)
-						self.value = oldValue
+						DispatchQueue.main.async {
+							self.value = oldValue
+							print("reverted value to \(self.value)")
+						}
 					}
 				}
+				update.start()
 			}
 		}
 	}

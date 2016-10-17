@@ -15,4 +15,6 @@
  ![macOS](Screenshots/macOS.png)
 
 - View words in a list
+- Edit words
+- Delete words
 - Synchronize all words inside a private iCloud database in realtime
