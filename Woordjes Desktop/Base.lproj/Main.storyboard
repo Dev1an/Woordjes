@@ -687,7 +687,7 @@ CA
         <scene sceneID="9An-T8-stX">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="Ayg-ub-mVV" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="iY4-uh-OLp">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="iY4-uh-OLp">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -706,7 +706,7 @@ CA
             <objects>
                 <viewController id="BqG-TH-8Cw" customClass="PreferencesController" customModule="Woordjes_Desktop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jEG-Fz-rEW">
-                        <rect key="frame" x="0.0" y="0.0" width="291" height="61"/>
+                        <rect key="frame" x="0.0" y="0.0" width="194" height="61"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-3L-y59">
@@ -730,7 +730,7 @@ CA
                 </viewController>
                 <customObject id="Az3-ah-J8A" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5" y="145.5"/>
+            <point key="canvasLocation" x="1069" y="145.5"/>
         </scene>
         <!--Desktop View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -780,7 +780,7 @@ CA
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="2Tv-q2-TF2" name="value" keyPath="objectValue.value" id="ARe-IF-3Dr"/>
+                                                                        <binding destination="2Tv-q2-TF2" name="value" keyPath="objectValue.syncedValue" id="uFO-dH-uVK"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>

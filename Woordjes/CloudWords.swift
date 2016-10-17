@@ -18,6 +18,7 @@ let zoneID = myWordsZone.zoneID
 let myList = CKRecord(recordType: "WordList", recordID: CKRecordID(recordName: "My word list", zoneID: zoneID))
 
 func fetchCloudWords() {
+	let changesGroup = DispatchGroup()
 	let fetchChanges = CKFetchRecordZoneChangesOperation(recordZoneIDs: [zoneID], optionsByRecordZoneID: [zoneID: CKFetchRecordZoneChangesOptions()])
 	fetchChanges.container = cloudContainer
 	fetchChanges.fetchAllChanges = true
@@ -27,23 +28,30 @@ func fetchCloudWords() {
 			print("❗An error occured during fetching")
 			print(error)
 		} else {
+			changesGroup.wait()
 			appDelegate.saveContext()
 		}
 	}
 	fetchChanges.recordChangedBlock = { record in
 		switch record.recordType {
 		case "Word":
-			print("\(record["value"]!)\t changed at (\(record.creationDate!))")
-			
-			DispatchQueue.main.async {
-				Word.exists(id: record.recordID) { alreadyInLocalDatabase, word in
-					if alreadyInLocalDatabase {
+			print("\(record["value"]!)\t change at (\(record.creationDate!))")
+
+			changesGroup.enter()
+			Word.exists(id: record.recordID) { alreadyInLocalDatabase, word in
+				if alreadyInLocalDatabase {
+					DispatchQueue.main.async {
 						word!.value = record["value"] as! String
-					} else {
+						print("Modified a word")
+						changesGroup.leave()
+					}
+				} else {
+					DispatchQueue.main.async {
 						let managedObject = Word(record["value"] as! String, insertInto: localContext)
-						managedObject.cloudID = record.recordID.tuple
+						managedObject.cloudID = record.recordID
 						managedObject.creationDate = record.creationDate!
-						print("changed a word")
+						print("➕ Added a word")
+						changesGroup.leave()
 					}
 				}
 			}
@@ -55,9 +63,13 @@ func fetchCloudWords() {
 	}
 	fetchChanges.recordWithIDWasDeletedBlock = { id, string in
 		print("cloud deletion \(id, string)")
+		changesGroup.enter()
 		Word.by(id: id) { word in
 			print("delete \(word.value) locally")
-			DispatchQueue.main.async {localContext.delete(word)}
+			DispatchQueue.main.async {
+				localContext.delete(word)
+				changesGroup.leave()
+			}
 		}
 	}
 	fetchChanges.recordZoneFetchCompletionBlock = { id, changeToken, data, moreComing, error in
@@ -73,7 +85,25 @@ func fetchCloudWords() {
 			cloudSyncToken = token
 		}
 	}
+	fetchChanges.qualityOfService = .userInteractive
 	fetchChanges.start()
+}
+
+extension QualityOfService {
+	var description: String {
+		switch self {
+		case .background:
+			return "background"
+		case .default:
+			return "default"
+		case .userInitiated:
+			return "user initiated"
+		case .userInteractive:
+			return "user interactive"
+		case .utility:
+			return "utility"
+		}
+	}
 }
 
 func add(word: String) {
@@ -81,24 +111,26 @@ func add(word: String) {
 	record["value"] = word as NSString
 	record.setParent(myList)
 	
-	let managedObject = Word(word, insertInto: localContext)
-	managedObject.cloudID = record.recordID.tuple
-	managedObject.creationDate = Date()
+	DispatchQueue.main.async {
+		let managedObject = Word(word, insertInto: localContext)
+		managedObject.creationDate = Date()
+		managedObject.cloudID = record.recordID
 
-	privateDatabase.save(record) { record, error in
-		if let error = error {
-			print("❗error while saving a new word in the cloud")
-			print(error)
-			localContext.delete(managedObject)
-		} else {
-			if let date = record?.creationDate { managedObject.creationDate = date }
+		privateDatabase.save(record) { record, error in
+			if let error = error {
+				print("❗error while saving a new word in the cloud")
+				print(error)
+				DispatchQueue.main.async { localContext.delete(managedObject) }
+			} else {
+				DispatchQueue.main.async { if let date = record?.creationDate { managedObject.creationDate = date } }
+			}
 		}
 	}
+
 }
 
 func remove(word: Word) {
-	if let name = word.cloudRecordName, let zoneName = word.cloudRecordZoneName, let zoneOwnerName = word.cloudRecordZoneOwnerName {
-		let cloudID = CKRecordID(recordName: name, zoneID: CKRecordZoneID(zoneName: zoneName, ownerName: zoneOwnerName))
+	if let cloudID = word.cloudID {
 		privateDatabase.delete(withRecordID: cloudID) { id, error in
 			if let error = error {
 				print("❗error while deleting a word in the cloud")
@@ -145,13 +177,6 @@ func saveToken() {
 	if let token = cloudSyncToken {
 		let archivedToken = NSKeyedArchiver.archivedData(withRootObject:  token)
 		defaults.set(archivedToken, forKey: cloudSyncTokenKey)
-	}
-}
-
-// MARK: -
-
-extension CKRecordID {
-	var tuple: (String?, String?, String?) {
-		return (recordName, zoneID.zoneName, zoneID.ownerName)
+		print("💾 Server token saved")
 	}
 }
