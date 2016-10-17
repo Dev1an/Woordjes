@@ -5,7 +5,7 @@
 - View words of a list
 - Add words to a list
 - Remove words from a list
-- Present word in full screen on a second monitor
+- Present word in full screen on a second monitor (via AirPlay or HDMI cable)
 - Synchronize all words inside a private iCloud database in realtime
 
  ![iOS](Screenshots/iOS.PNG)
