@@ -22,8 +22,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 				
 				fetchCloudWords()
 				
-//				subscribeToWords()
+				if let networkTest = networkTest {
+					networkTest.whenReachable = { _ in
+						handleLongLivingOperations()
+					}
+					do {
+						try networkTest.startNotifier()
+						print(networkTest.isReachable)
+					} catch {
+						print("❗️Network test could not start notifier")
+					}
+					print("network test started")
+				} else {
+					print("❗️Network test is nil")
+				}
 				
+//				subscribeToWords()
 			} else {
 				print("❗Use an iCloud account")
 			}

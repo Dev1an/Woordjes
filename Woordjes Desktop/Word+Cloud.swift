@@ -22,6 +22,7 @@ extension Word {
 				let update = CKModifyRecordsOperation(recordsToSave: [word], recordIDsToDelete: nil)
 				update.database = privateDatabase
 				update.savePolicy = .changedKeys
+				update.isLongLived = true
 				update.modifyRecordsCompletionBlock = { addedWords, removedWords, error in
 					if let error = error {
 						print("❗️Error while modifying \(oldValue) to \(self.value)")
@@ -30,6 +31,8 @@ extension Word {
 							self.value = oldValue
 							print("reverted value to \(self.value)")
 						}
+					} else {
+						print("modification complete succesfuly")
 					}
 				}
 				update.start()

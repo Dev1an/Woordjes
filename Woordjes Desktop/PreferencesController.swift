@@ -17,7 +17,13 @@ class PreferencesController: NSViewController {
     
 	@IBAction func resetDatabase(_ sender: AnyObject) {
 		cloudSyncToken = nil
-		localContext.reset()
+		do {
+			for word in try localContext.fetch(Word.fetchAll()) {
+				localContext.delete(word)
+			}
+		} catch {
+			print(error)
+		}
 		fetchCloudWords()
 	}
 }

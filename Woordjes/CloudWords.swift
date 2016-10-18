@@ -17,6 +17,8 @@ let myWordsZone = CKRecordZone(zoneName: "My word list")
 let zoneID = myWordsZone.zoneID
 let myList = CKRecord(recordType: "WordList", recordID: CKRecordID(recordName: "My word list", zoneID: zoneID))
 
+let networkTest = Reachability(hostname: "apple.com")
+
 func fetchCloudWords() {
 	let changesGroup = DispatchGroup()
 	let fetchChanges = CKFetchRecordZoneChangesOperation(recordZoneIDs: [zoneID], optionsByRecordZoneID: [zoneID: CKFetchRecordZoneChangesOptions()])
@@ -29,7 +31,9 @@ func fetchCloudWords() {
 			print(error)
 		} else {
 			changesGroup.wait()
-			appDelegate.saveContext()
+			DispatchQueue.main.async {
+				appDelegate.saveContext()
+			}
 		}
 	}
 	fetchChanges.recordChangedBlock = { record in
@@ -64,10 +68,14 @@ func fetchCloudWords() {
 	fetchChanges.recordWithIDWasDeletedBlock = { id, string in
 		print("cloud deletion \(id, string)")
 		changesGroup.enter()
-		Word.by(id: id) { word in
-			print("delete \(word.value) locally")
-			DispatchQueue.main.async {
-				localContext.delete(word)
+		Word.exists(id: id) { stillInContext, word in
+			if stillInContext {
+				print("delete \(word!.value) locally")
+				DispatchQueue.main.async {
+					localContext.delete(word!)
+					changesGroup.leave()
+				}
+			} else {
 				changesGroup.leave()
 			}
 		}
@@ -133,14 +141,48 @@ func add(word: String) {
 
 func remove(word: Word) {
 	if let cloudID = word.cloudID {
-		privateDatabase.delete(withRecordID: cloudID) { id, error in
+		let deletion = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [cloudID])
+		deletion.isLongLived = true
+		deletion.database = privateDatabase
+		deletion.modifyRecordsCompletionBlock = { _, deletedWords, error in
 			if let error = error {
 				print("❗error while deleting a word in the cloud")
 				print(error)
+			} else {
 			}
-			DispatchQueue.main.async {
-				localContext.delete(word)
-				appDelegate.saveContext()
+		}
+		deletion.start()
+		DispatchQueue.main.async {
+			localContext.delete(word)
+			appDelegate.saveContext()
+		}
+	}
+}
+
+func handleLongLivingOperations() {
+	cloudContainer.fetchAllLongLivedOperationIDs { operationIDs, error in
+		if let error = error {
+			print("❗error while fetching longLivingOperations")
+			print(error)
+		} else if let operationIDs = operationIDs {
+			for id in operationIDs {
+				cloudContainer.fetchLongLivedOperation(withID: id) { operation, error in
+					if let error = error {
+						print("❗error while fetching longLivingOperation")
+						print(error)
+					} else {
+						if let wordModifications = operation as? CKModifyRecordsOperation {
+							wordModifications.modifyRecordsCompletionBlock = { changedWords, removedWords, error in
+								if let error = error {
+									print("❗️Error while modifying records")
+									print(error)
+								} else {
+									print("modification complete succesfuly")
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
