@@ -157,6 +157,15 @@ func remove(word: Word) {
 		}
 		DispatchQueue.main.async {
 			word.localOperation = .delete
+			let request = Word.fetchAll()
+			request.sortDescriptors = [NSSortDescriptor(key: "value", ascending: true)]
+			request.predicate = NSPredicate(format: "localOperation != 0")
+			if let deletedWords = try? localContext.fetch(request) {
+				print("fetched")
+				print(deletedWords)
+			} else {
+				print("fetch failed")
+			}
 			appDelegate.saveContext()
 		}
 		deletion.start()
