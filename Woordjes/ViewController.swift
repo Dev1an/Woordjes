@@ -20,6 +20,7 @@ class ViewController: UITableViewController {
 		
 		let request = Word.fetchAll()
 		request.sortDescriptors = [NSSortDescriptor(key: "value", ascending: true)]
+		request.predicate = NSPredicate(format: "localOperation != %@", LocalOperation.delete.rawValue)
 		fetchedWordsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: localContext, sectionNameKeyPath: nil, cacheName: nil)
 		
 		fetchedWordsController!.delegate = self

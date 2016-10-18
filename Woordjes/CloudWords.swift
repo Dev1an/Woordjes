@@ -149,13 +149,17 @@ func remove(word: Word) {
 				print("❗error while deleting a word in the cloud")
 				print(error)
 			} else {
+				DispatchQueue.main.async {
+					localContext.delete(word)
+					appDelegate.saveContext()
+				}
 			}
 		}
-		deletion.start()
 		DispatchQueue.main.async {
-			localContext.delete(word)
+			word.localOperation = .delete
 			appDelegate.saveContext()
 		}
+		deletion.start()
 	}
 }
 
@@ -178,6 +182,17 @@ func handleLongLivingOperations() {
 									print(error)
 								} else {
 									print("modification complete succesfuly")
+									if let removedWords = removedWords {
+										let request = Word.fetchAll()
+										request.predicate = NSPredicate(format: "cloudID IN ", removedWords)
+										if let words = try? request.execute() {
+											DispatchQueue.main.async {
+												for word in words {
+													localContext.delete(word)
+												}
+											}
+										}
+									}
 								}
 							}
 						}

@@ -11,7 +11,7 @@ import CoreData
 import CloudKit
 
 @objc public enum LocalOperation: Int16 {
-	case insert, delete, update, none
+	case delete = 0, insert, update, none
 }
 
 extension Word {

@@ -864,7 +864,7 @@ CA
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController mode="entity" entityName="Word" automaticallyPreparesContent="YES" id="et0-hv-Ces">
+                <arrayController mode="entity" entityName="Word" fetchPredicateFormat="localOperation != 0" automaticallyPreparesContent="YES" id="et0-hv-Ces">
                     <connections>
                         <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.managedObjectContext" id="YdQ-5b-lhy"/>
                     </connections>
