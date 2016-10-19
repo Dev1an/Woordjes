@@ -166,35 +166,6 @@ func remove(word: Word) {
 }
 
 func resumeLongLivingOperations() {
-	cloudContainer.fetchLongLivedOperation(withID: "6BD8BC9887D6F894") { operation, error in
-		print("✋ Manual fetch. \(operation?.isFinished)")
-		if let deletion = operation as? CKModifyRecordsOperation {
-			deletion.modifyRecordsCompletionBlock = { _, removedWords, error in
-				if let error = error {
-					print("❗️Error while modifying records")
-					print(error)
-				} else {
-					print("long living modification complete succesfuly")
-					if let removedWords = removedWords {
-						let request = Word.fetchAll()
-						request.predicate = Word.predicateForRecordsWith(cloudIDs: removedWords)
-						DispatchQueue.main.async {
-							do {
-								let words = try localContext.fetch(request)
-								for word in words {
-									localContext.delete(word)
-								}
-							} catch {
-								print(error)
-							}
-						}
-					}
-				}
-			}
-			privateDatabase.add(deletion)
-		}
-		
-	}
 	cloudContainer.fetchAllLongLivedOperationIDs { operationIDs, error in
 		if let error = error {
 			print("❗error while fetching longLivingOperations")
