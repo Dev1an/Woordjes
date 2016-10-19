@@ -11,7 +11,6 @@ import UIKit
 var screenConnectionObserver, screenDisconnectionObserver: NSObjectProtocol?
 
 func addScreenObservers() {
-	print("adding observers")
 	screenConnectionObserver = notificationCenter.addObserver(forName: NSNotification.Name.UIScreenDidConnect, object: nil, queue: OperationQueue.main) { notification in
 		createWindow(forExternalScreen: notification.object as! UIScreen)
 	}

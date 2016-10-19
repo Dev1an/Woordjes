@@ -17,8 +17,6 @@ let myWordsZone = CKRecordZone(zoneName: "My word list")
 let zoneID = myWordsZone.zoneID
 let myList = CKRecord(recordType: "WordList", recordID: CKRecordID(recordName: "My word list", zoneID: zoneID))
 
-let networkTest = Reachability(hostname: "apple.com")
-
 func fetchCloudWords() {
 	let changesGroup = DispatchGroup()
 	let fetchChanges = CKFetchRecordZoneChangesOperation(recordZoneIDs: [zoneID], optionsByRecordZoneID: [zoneID: CKFetchRecordZoneChangesOptions()])
@@ -142,6 +140,7 @@ func add(word: String) {
 func remove(word: Word) {
 	if let cloudID = word.cloudID {
 		let deletion = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [cloudID])
+		print("created delete operation \(deletion.operationID)")
 		deletion.isLongLived = true
 		deletion.database = privateDatabase
 		deletion.modifyRecordsCompletionBlock = { _, deletedWords, error in
@@ -157,53 +156,85 @@ func remove(word: Word) {
 		}
 		DispatchQueue.main.async {
 			word.localOperation = .delete
-			let request = Word.fetchAll()
-			request.sortDescriptors = [NSSortDescriptor(key: "value", ascending: true)]
-			request.predicate = NSPredicate(format: "localOperation != 0")
-			if let deletedWords = try? localContext.fetch(request) {
-				print("fetched")
-				print(deletedWords)
-			} else {
-				print("fetch failed")
-			}
 			appDelegate.saveContext()
 		}
 		deletion.start()
+		deletion.longLivedOperationWasPersistedBlock = {
+			print("longLivedOperationWasPersistedBlock")
+		}
 	}
 }
 
-func handleLongLivingOperations() {
+func resumeLongLivingOperations() {
+	cloudContainer.fetchLongLivedOperation(withID: "6BD8BC9887D6F894") { operation, error in
+		print("✋ Manual fetch. \(operation?.isFinished)")
+		if let deletion = operation as? CKModifyRecordsOperation {
+			deletion.modifyRecordsCompletionBlock = { _, removedWords, error in
+				if let error = error {
+					print("❗️Error while modifying records")
+					print(error)
+				} else {
+					print("long living modification complete succesfuly")
+					if let removedWords = removedWords {
+						let request = Word.fetchAll()
+						request.predicate = Word.predicateForRecordsWith(cloudIDs: removedWords)
+						DispatchQueue.main.async {
+							do {
+								let words = try localContext.fetch(request)
+								for word in words {
+									localContext.delete(word)
+								}
+							} catch {
+								print(error)
+							}
+						}
+					}
+				}
+			}
+			privateDatabase.add(deletion)
+		}
+		
+	}
 	cloudContainer.fetchAllLongLivedOperationIDs { operationIDs, error in
 		if let error = error {
 			print("❗error while fetching longLivingOperations")
 			print(error)
 		} else if let operationIDs = operationIDs {
+			var i = 1
+			print("\(operationIDs.count) long operations")
 			for id in operationIDs {
+				let j = i
+				print("Fetching operation \(j) \(id)"); i += 1
 				cloudContainer.fetchLongLivedOperation(withID: id) { operation, error in
 					if let error = error {
 						print("❗error while fetching longLivingOperation")
 						print(error)
 					} else {
+						print("Fetched operation \(j)")
 						if let wordModifications = operation as? CKModifyRecordsOperation {
 							wordModifications.modifyRecordsCompletionBlock = { changedWords, removedWords, error in
 								if let error = error {
 									print("❗️Error while modifying records")
 									print(error)
 								} else {
-									print("modification complete succesfuly")
+									print("long living modification complete succesfuly")
 									if let removedWords = removedWords {
 										let request = Word.fetchAll()
-										request.predicate = NSPredicate(format: "cloudID IN ", removedWords)
-										if let words = try? request.execute() {
-											DispatchQueue.main.async {
+										request.predicate = Word.predicateForRecordsWith(cloudIDs: removedWords)
+										DispatchQueue.main.async {
+											do {
+												let words = try localContext.fetch(request)
 												for word in words {
 													localContext.delete(word)
 												}
+											} catch {
+												print(error)
 											}
 										}
 									}
 								}
 							}
+							privateDatabase.add(wordModifications)
 						}
 					}
 				}
@@ -215,8 +246,7 @@ func handleLongLivingOperations() {
 func subscribeToWords() {
 	let subscription = CKRecordZoneSubscription(zoneID: zoneID)
 	let notificationInfo = CKNotificationInfo()
-	notificationInfo.shouldBadge = true
-	notificationInfo.alertLocalizationKey = "Nieuwe woorden"
+	notificationInfo.shouldSendContentAvailable = true
 	subscription.notificationInfo = notificationInfo
 	privateDatabase.save(subscription) { subscription, error in
 		if let error = error {

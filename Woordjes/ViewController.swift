@@ -20,7 +20,7 @@ class ViewController: UITableViewController {
 		
 		let request = Word.fetchAll()
 		request.sortDescriptors = [NSSortDescriptor(key: "value", ascending: true)]
-		request.predicate = NSPredicate(format: "localOperation != %d", LocalOperation.delete.rawValue)
+//		request.predicate = NSPredicate(format: "localOperation != %d", LocalOperation.delete.rawValue)
 		fetchedWordsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: localContext, sectionNameKeyPath: nil, cacheName: nil)
 		
 		fetchedWordsController!.delegate = self
@@ -33,7 +33,7 @@ class ViewController: UITableViewController {
 	func configureCell(_ cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		if let fetchedWordsController = fetchedWordsController {
 			let woord = fetchedWordsController.object(at: indexPath)
-			cell.textLabel?.text = woord.value
+			cell.textLabel?.text = woord.value + (woord.localOperation == .delete ? " (deleted)" : "")
 		}
 	}
 	
@@ -54,6 +54,18 @@ class ViewController: UITableViewController {
 		
 		// 4. Present the alert.
 		self.present(alert, animated: true, completion: nil)
+	}
+	
+	@IBAction func resetDatabase(_ sender: AnyObject) {
+		cloudSyncToken = nil
+		do {
+			for word in try localContext.fetch(Word.fetchAll()) {
+				localContext.delete(word)
+			}
+		} catch {
+			print(error)
+		}
+		fetchCloudWords()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -133,7 +145,6 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 	
 	func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		tableView.beginUpdates()
-		print("fetched results controller will change contents")
 	}
 	
 	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {

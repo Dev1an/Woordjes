@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Word" representedClassName=".Word" syncable="YES">
-        <attribute name="cloudID" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="cloudRecordName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cloudRecordZoneName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cloudRecordZoneOwnerName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" minDateTimeInterval="497816760" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
         <attribute name="localOperation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="value" attributeType="String" indexed="YES" syncable="YES"/>
@@ -11,7 +13,7 @@
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="list" inverseEntity="Word" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="WordList" positionX="198" positionY="57" width="128" height="58"/>
     </elements>
 </model>

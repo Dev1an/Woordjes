@@ -31,22 +31,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		cloudContainer.accountStatus { status, error in
 			if status == .available {
-				
+				print("Available")
 				unarchiveSavedToken()
-				
+
 				fetchCloudWords()
-				
-				privateDatabase.save(myList) { myWordListRecord, error in
-					if let error = error {
-						print("error while saving my word list")
-						print(error)
-					}
-					print("☁️ Saved my word list")
-				}
-								
-				
+
+//				privateDatabase.save(myList) { myWordListRecord, error in
+//					if let error = error {
+//						print("error while saving my word list")
+//						print(error)
+//					}
+//					print("☁️ Saved my word list")
+//				}
+					
+				resumeLongLivingOperations()
+
 			} else {
 				print("❗Use an iCloud account")
+				print(error)
 			}
 		}
 		
