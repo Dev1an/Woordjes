@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				
 				resumeLongLivingOperations()
 
-				subscribeToWords()
+//				subscribeToWords()
 			} else {
 				print("❗Use an iCloud account")
 				print(error)

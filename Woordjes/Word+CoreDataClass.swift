@@ -17,7 +17,7 @@ public class Word: NSManagedObject {
 	
 	class func exists(id: CKRecordID, handler: (Bool, Word?) -> Void){
 		let request = Word.fetchAll()
-		request.predicate = Word.predicateForRecordWith(cloudID: id)
+		request.predicate = predicateForRecordWith(cloudID: id)
 		request.fetchLimit = 1
 		request.propertiesToFetch = []
 		if let words = try? localContext.fetch(request) {

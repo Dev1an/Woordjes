@@ -52,11 +52,4 @@ extension Word {
 		}
 	}
 	
-	class func predicateForRecordWith(cloudID: CKRecordID) -> NSPredicate {
-		return NSPredicate(format: "cloudRecordName == %@ AND cloudRecordZoneName == %@ AND cloudRecordZoneOwnerName == %@", cloudID.recordName, cloudID.zoneID.zoneName, cloudID.zoneID.ownerName)
-	}
-
-	class func predicateForRecordsWith(cloudIDs: [CKRecordID]) -> NSPredicate {
-		return NSPredicate(format: "cloudRecordName IN %@ AND cloudRecordZoneName IN %@ AND cloudRecordZoneOwnerName IN %@", cloudIDs.map {$0.recordName}, cloudIDs.map {$0.zoneID.zoneName}, cloudIDs.map {$0.zoneID.ownerName})
-	}
 }
