@@ -43,9 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //					}
 //					print("☁️ Saved my word list")
 //				}
-					
+				
 				resumeLongLivingOperations()
 
+				subscribeToWords()
 			} else {
 				print("❗Use an iCloud account")
 				print(error)

@@ -143,6 +143,7 @@ func remove(word: Word) {
 		print("created delete operation \(deletion.operationID)")
 		deletion.isLongLived = true
 		deletion.database = privateDatabase
+		print(deletion.container == cloudContainer)
 		deletion.modifyRecordsCompletionBlock = { _, deletedWords, error in
 			if let error = error {
 				print("❗error while deleting a word in the cloud")
