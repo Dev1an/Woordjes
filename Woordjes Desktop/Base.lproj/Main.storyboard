@@ -830,7 +830,6 @@ CA
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <action trigger="doubleAction" selector="edit:" target="XfG-lQ-9wD" id="iCr-Cp-kEs"/>
                                                 <binding destination="et0-hv-Ces" name="content" keyPath="arrangedObjects" id="NvS-dk-A24"/>
                                                 <binding destination="et0-hv-Ces" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="NvS-dk-A24" id="M2i-wt-dWE"/>
                                                 <binding destination="et0-hv-Ces" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="M2i-wt-dWE" id="SIg-4M-t6N"/>
