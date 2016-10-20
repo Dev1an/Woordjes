@@ -19,6 +19,7 @@ extension Word {
 			let oldValue = value
 			DispatchQueue.main.async { self.value = newValue }
 			if let word = cloudRecord {
+				word["value"] = newValue as NSString
 				let update = CKModifyRecordsOperation(recordsToSave: [word], recordIDsToDelete: nil)
 				update.database = privateDatabase
 				update.savePolicy = .changedKeys

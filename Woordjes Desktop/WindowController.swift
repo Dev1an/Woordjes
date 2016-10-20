@@ -14,6 +14,7 @@ class WindowController: NSWindowController {
         super.windowDidLoad()
 
         window?.titleVisibility = .hidden
+		window?.toolbar?.showsBaselineSeparator = false
     }
     
 }

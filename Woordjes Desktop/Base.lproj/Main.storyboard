@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -684,37 +683,37 @@ CA
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="3md-qW-sBx"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Oko-ia-dvG"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Uy5-cU-GYv"/>
-                                <toolbarItem implicitItemIdentifier="FD2F41A2-837E-4348-B4E9-E9471CC55275" label="Custom View" paletteLabel="Custom View" image="NSAddTemplate" id="BJJ-BD-cJw">
+                                <toolbarItem implicitItemIdentifier="FD2F41A2-837E-4348-B4E9-E9471CC55275" label="Add word" paletteLabel="Add word" image="NSAddTemplate" id="BJJ-BD-cJw">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="27" height="28"/>
                                     <size key="maxSize" width="40" height="35"/>
                                     <button key="view" verticalHuggingPriority="750" id="WdI-ba-2Fz">
-                                        <rect key="frame" x="24" y="14" width="28" height="28"/>
+                                        <rect key="frame" x="15" y="14" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1wJ-Ku-RIn">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
-                                        <connections>
-                                            <action selector="addRow:" target="Oky-zY-oP4" id="mxO-cy-6KI"/>
-                                        </connections>
                                     </button>
+                                    <connections>
+                                        <action selector="addRow:" target="Oky-zY-oP4" id="8Y6-sM-Qke"/>
+                                    </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="4373A2EB-46E9-4EB8-B563-53DCA32E2F01" label="Custom View" paletteLabel="Custom View" image="NSRemoveTemplate" id="Sj4-fc-AiV">
+                                <toolbarItem implicitItemIdentifier="4373A2EB-46E9-4EB8-B563-53DCA32E2F01" label="Delete word" paletteLabel="Delete word" image="NSRemoveTemplate" id="Sj4-fc-AiV">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="27" height="28"/>
                                     <size key="maxSize" width="40" height="35"/>
                                     <button key="view" verticalHuggingPriority="750" id="RL1-9p-ZxA">
-                                        <rect key="frame" x="24" y="14" width="28" height="28"/>
+                                        <rect key="frame" x="21" y="14" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ri-Qx-WC3">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
-                                        <connections>
-                                            <action selector="deleteBackward:" target="Oky-zY-oP4" id="RLr-1v-hG1"/>
-                                        </connections>
                                     </button>
+                                    <connections>
+                                        <action selector="deleteBackward:" target="Oky-zY-oP4" id="zyl-k0-jKN"/>
+                                    </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
@@ -755,7 +754,7 @@ CA
                                             <tableColumns>
                                                 <tableColumn identifier="Word" width="323" minWidth="40" maxWidth="1000" id="YyZ-nA-cbP">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Woord">
-                                                        <font key="font" metaFont="systemMedium" size="11"/>
+                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
