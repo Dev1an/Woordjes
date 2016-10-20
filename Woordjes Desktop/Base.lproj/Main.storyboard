@@ -673,38 +673,54 @@ CA
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" customClass="WindowController" customModule="Woordjes_Desktop" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Woordjes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="9591BBC0-6375-4EF0-8AD9-81D2BB8956AB" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="ap9-9f-6PM">
+                        <toolbar key="toolbar" implicitIdentifier="9591BBC0-6375-4EF0-8AD9-81D2BB8956AB" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="ap9-9f-6PM">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="2F16E314-C1F3-4EF3-B534-596F9A333293" label="Add word" paletteLabel="Add word" tag="-1" image="NSAddTemplate" id="Wv8-Y0-mRn">
-                                    <connections>
-                                        <action selector="addRow:" target="Oky-zY-oP4" id="MT8-Fw-usw"/>
-                                    </connections>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="18B5E05A-53AD-4BD9-A16A-B970EF6B7290" label="Delete" paletteLabel="Delete" tag="-1" image="NSTrashEmpty" id="YkC-F0-Q1m">
-                                    <connections>
-                                        <action selector="deleteBackward:" target="Oky-zY-oP4" id="HlG-gy-tLz"/>
-                                    </connections>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="62ED0FC7-987E-4B12-B79B-1663DED26AD9" label="Reload " paletteLabel="Reload" tag="-1" image="NSRefreshFreestandingTemplate" id="Vaq-pH-Fud">
-                                    <connections>
-                                        <action selector="reload:" target="Oky-zY-oP4" id="JRl-m1-43d"/>
-                                    </connections>
-                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="3md-qW-sBx"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Oko-ia-dvG"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Uy5-cU-GYv"/>
+                                <toolbarItem implicitItemIdentifier="4373A2EB-46E9-4EB8-B563-53DCA32E2F01" label="Custom View" paletteLabel="Custom View" image="NSAddTemplate" id="Sj4-fc-AiV">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="27" height="20"/>
+                                    <size key="maxSize" width="35" height="35"/>
+                                    <button key="view" verticalHuggingPriority="750" id="RL1-9p-ZxA">
+                                        <rect key="frame" x="24" y="14" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ri-Qx-WC3">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="addRow:" target="Oky-zY-oP4" id="cmx-jm-FDa"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="FC82D327-01D4-43E2-B09F-F17A433425E3" label="Custom View" paletteLabel="Custom View" image="NSRemoveTemplate" id="7Kq-GO-dEE">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="27" height="28"/>
+                                    <size key="maxSize" width="40" height="35"/>
+                                    <button key="view" verticalHuggingPriority="750" id="YHr-aG-cPc">
+                                        <rect key="frame" x="24" y="14" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W5L-W2-Uzt">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="deleteBackward:" target="Oky-zY-oP4" id="Q6g-Bs-neD"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="Wv8-Y0-mRn"/>
-                                <toolbarItem reference="YkC-F0-Q1m"/>
+                                <toolbarItem reference="Sj4-fc-AiV"/>
+                                <toolbarItem reference="7Kq-GO-dEE"/>
                                 <toolbarItem reference="Uy5-cU-GYv"/>
-                                <toolbarItem reference="Vaq-pH-Fud"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
@@ -725,13 +741,13 @@ CA
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKU-Ce-dhS">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="271"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <clipView key="contentView" id="yRT-vK-7nx">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="271"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="iVj-ju-hLq" viewBased="YES" id="13y-eN-CVG">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="248"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="247"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -838,7 +854,7 @@ CA
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MKU-Ce-dhS" secondAttribute="bottom" id="OrX-r8-3sW"/>
                             <constraint firstAttribute="trailing" secondItem="MKU-Ce-dhS" secondAttribute="trailing" id="Vkp-5z-ZBR"/>
-                            <constraint firstItem="MKU-Ce-dhS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-1" id="gWG-l1-4w0"/>
+                            <constraint firstItem="MKU-Ce-dhS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="gWG-l1-4w0"/>
                             <constraint firstItem="MKU-Ce-dhS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="iGO-y1-1YE"/>
                         </constraints>
                     </view>
@@ -859,7 +875,6 @@ CA
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
-        <image name="NSTrashEmpty" width="32" height="32"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>
