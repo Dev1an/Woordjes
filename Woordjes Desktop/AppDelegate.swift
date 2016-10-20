@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			}
 		}
 		
-		NSApplication.shared().registerForRemoteNotifications(matching: NSRemoteNotificationType.badge)
+		NSApplication.shared().registerForRemoteNotifications(matching: NSRemoteNotificationType.alert)
 	}
 
 	func applicationWillTerminate(_ aNotification: Notification) {

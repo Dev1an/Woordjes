@@ -49,7 +49,7 @@ class ViewController: UITableViewController {
 		
 		// 3. Grab the value from the text field, add it when the user clicks OK.
 		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-			add(word: alert.textFields!.first!.text!)
+			add(word: alert.textFields!.first!.text!, completionHandler: nil)
 		}))
 		
 		// 4. Present the alert.
@@ -57,16 +57,15 @@ class ViewController: UITableViewController {
 	}
 	
 	@IBAction func resetDatabase(_ sender: AnyObject) {
-//		cloudSyncToken = nil
-//		do {
-//			for word in try localContext.fetch(Word.fetchAll()) {
-//				localContext.delete(word)
-//			}
-//		} catch {
-//			print(error)
-//		}
-//		fetchCloudWords()
-		resumeLongLivingOperations()
+		cloudSyncToken = nil
+		do {
+			for word in try localContext.fetch(Word.fetchAll()) {
+				localContext.delete(word)
+			}
+		} catch {
+			print(error)
+		}
+		fetchCloudWords()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -167,7 +166,9 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 		case .delete:
 			tableView.deleteRows(at: [indexPath!], with: .automatic)
 		case .update:
-			configureCell(tableView.cellForRow(at: indexPath!)!, forRowAt: indexPath!)
+			if let updatedCell = tableView.cellForRow(at: indexPath!) {
+				configureCell(updatedCell, forRowAt: indexPath!)
+			}
 		case .move:
 			tableView.moveRow(at: indexPath!, to: newIndexPath!)
 		}

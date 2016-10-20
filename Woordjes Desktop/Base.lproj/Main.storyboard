@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -22,11 +23,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                            <connections>
-                                                <segue destination="Ayg-ub-mVV" kind="show" id="rax-9Z-A7W"/>
-                                            </connections>
-                                        </menuItem>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -63,9 +60,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="New word" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <action selector="addRow:" target="Ady-hI-5gd" id="x9P-Tr-YiP"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
@@ -102,7 +99,8 @@
                                                 <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="KaW-ft-85H">
+                                        <menuItem title="Revert to Saved" id="KaW-ft-85H">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="iJ3-Pv-kwq"/>
                                             </connections>
@@ -158,10 +156,11 @@
                                                 <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="cEh-KX-wJQ"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Delete" id="pa3-QI-u2k">
+                                        <menuItem title="Delete" tag="1" id="pa3-QI-u2k">
                                             <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
+                                            <accessibility identifier="delete"/>
                                             <connections>
                                                 <action selector="deleteBackward:" target="Ady-hI-5gd" id="Eiu-6v-CMG"/>
                                             </connections>
@@ -614,6 +613,12 @@ CA
                                                 <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="0db-u3-Kf3"/>
+                                        <menuItem title="Laad woorden opnieuw" keyEquivalent="r" id="nFM-tV-0QP">
+                                            <connections>
+                                                <action selector="reload:" target="Ady-hI-5gd" id="SP5-Jt-2Ul"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -674,6 +679,34 @@ CA
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="9591BBC0-6375-4EF0-8AD9-81D2BB8956AB" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="ap9-9f-6PM">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="2F16E314-C1F3-4EF3-B534-596F9A333293" label="Add word" paletteLabel="Add word" tag="-1" image="NSAddTemplate" id="Wv8-Y0-mRn">
+                                    <connections>
+                                        <action selector="addRow:" target="Oky-zY-oP4" id="MT8-Fw-usw"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="18B5E05A-53AD-4BD9-A16A-B970EF6B7290" label="Delete" paletteLabel="Delete" tag="-1" image="NSTrashEmpty" id="YkC-F0-Q1m">
+                                    <connections>
+                                        <action selector="deleteBackward:" target="Oky-zY-oP4" id="HlG-gy-tLz"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="62ED0FC7-987E-4B12-B79B-1663DED26AD9" label="Reload " paletteLabel="Reload" tag="-1" image="NSRefreshFreestandingTemplate" id="Vaq-pH-Fud">
+                                    <connections>
+                                        <action selector="reload:" target="Oky-zY-oP4" id="JRl-m1-43d"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="3md-qW-sBx"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Oko-ia-dvG"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Uy5-cU-GYv"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="Wv8-Y0-mRn"/>
+                                <toolbarItem reference="YkC-F0-Q1m"/>
+                                <toolbarItem reference="Uy5-cU-GYv"/>
+                                <toolbarItem reference="Vaq-pH-Fud"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -682,55 +715,6 @@ CA
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="277"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="9An-T8-stX">
-            <objects>
-                <windowController showSeguePresentationStyle="single" id="Ayg-ub-mVV" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="iY4-uh-OLp">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
-                    </window>
-                    <connections>
-                        <segue destination="BqG-TH-8Cw" kind="relationship" relationship="window.shadowedContentViewController" id="bsp-7n-UGu"/>
-                    </connections>
-                </windowController>
-                <customObject id="LXg-S3-xzw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="612" y="250"/>
-        </scene>
-        <!--Preferences Controller-->
-        <scene sceneID="9jw-T5-D3a">
-            <objects>
-                <viewController id="BqG-TH-8Cw" customClass="PreferencesController" customModule="Woordjes_Desktop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="jEG-Fz-rEW">
-                        <rect key="frame" x="0.0" y="0.0" width="194" height="61"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hma-3L-y59">
-                                <rect key="frame" x="14" y="13" width="166" height="32"/>
-                                <buttonCell key="cell" type="push" title="Reset local database" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W1y-1y-nqI">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="resetDatabase:" target="BqG-TH-8Cw" id="avk-kv-6I7"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hma-3L-y59" secondAttribute="trailing" constant="20" id="IHk-tr-3CJ"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hma-3L-y59" secondAttribute="bottom" constant="20" id="PVy-4U-DFe"/>
-                            <constraint firstItem="Hma-3L-y59" firstAttribute="leading" secondItem="jEG-Fz-rEW" secondAttribute="leading" constant="20" id="orh-QI-CRg"/>
-                            <constraint firstItem="Hma-3L-y59" firstAttribute="top" secondItem="jEG-Fz-rEW" secondAttribute="top" constant="20" id="unW-cu-3Iy"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <customObject id="Az3-ah-J8A" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1069" y="145.5"/>
         </scene>
         <!--Desktop View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -741,21 +725,21 @@ CA
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKU-Ce-dhS">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="271"/>
                                 <clipView key="contentView" id="yRT-vK-7nx">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="271"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="iVj-ju-hLq" viewBased="YES" id="13y-eN-CVG">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="247"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="248"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="323" minWidth="40" maxWidth="1000" id="YyZ-nA-cbP">
+                                                <tableColumn identifier="Word" width="323" minWidth="40" maxWidth="1000" id="YyZ-nA-cbP">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Woord">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="systemMedium" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -854,16 +838,17 @@ CA
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MKU-Ce-dhS" secondAttribute="bottom" id="OrX-r8-3sW"/>
                             <constraint firstAttribute="trailing" secondItem="MKU-Ce-dhS" secondAttribute="trailing" id="Vkp-5z-ZBR"/>
-                            <constraint firstItem="MKU-Ce-dhS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="gWG-l1-4w0"/>
+                            <constraint firstItem="MKU-Ce-dhS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="-1" id="gWG-l1-4w0"/>
                             <constraint firstItem="MKU-Ce-dhS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="iGO-y1-1YE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="13y-eN-CVG" id="IJa-wM-Gjy"/>
                         <outlet property="wordsArrayController" destination="et0-hv-Ces" id="amb-tQ-ANL"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController mode="entity" entityName="Word" fetchPredicateFormat="localOperation != 0" automaticallyPreparesContent="YES" id="et0-hv-Ces">
+                <arrayController mode="entity" entityName="Word" fetchPredicateFormat="localOperation != 0" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="et0-hv-Ces">
                     <connections>
                         <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.managedObjectContext" id="YdQ-5b-lhy"/>
                     </connections>
@@ -872,4 +857,9 @@ CA
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
+        <image name="NSTrashEmpty" width="32" height="32"/>
+    </resources>
 </document>

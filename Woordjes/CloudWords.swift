@@ -86,7 +86,7 @@ extension QualityOfService {
 	}
 }
 
-func add(word: String) {
+func add(word: String, completionHandler: ((Word) -> Void)?) {
 	let record = CKRecord(recordType: "Word", zoneID: zoneID)
 	record["value"] = word as NSString
 	record.setParent(myList)
@@ -97,6 +97,7 @@ func add(word: String) {
 	DispatchQueue.main.async {
 		let managedObject = insertWordWith(cloudRecord: record)
 		managedObject.localOperation = .insert
+		completionHandler?(managedObject)
 		appDelegate.saveContext()
 		
 		insertion.modifyRecordsCompletionBlock = { insertedWordIDs, _, error in

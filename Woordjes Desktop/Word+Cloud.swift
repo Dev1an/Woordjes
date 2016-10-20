@@ -17,7 +17,7 @@ extension Word {
 		get { return value }
 		set {
 			let oldValue = value
-			value = newValue
+			DispatchQueue.main.async { self.value = newValue }
 			if let word = cloudRecord {
 				let update = CKModifyRecordsOperation(recordsToSave: [word], recordIDsToDelete: nil)
 				update.database = privateDatabase
