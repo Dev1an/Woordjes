@@ -684,42 +684,42 @@ CA
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="3md-qW-sBx"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Oko-ia-dvG"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Uy5-cU-GYv"/>
-                                <toolbarItem implicitItemIdentifier="4373A2EB-46E9-4EB8-B563-53DCA32E2F01" label="Custom View" paletteLabel="Custom View" image="NSAddTemplate" id="Sj4-fc-AiV">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="27" height="20"/>
-                                    <size key="maxSize" width="35" height="35"/>
-                                    <button key="view" verticalHuggingPriority="750" id="RL1-9p-ZxA">
-                                        <rect key="frame" x="24" y="14" width="28" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ri-Qx-WC3">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="addRow:" target="Oky-zY-oP4" id="cmx-jm-FDa"/>
-                                        </connections>
-                                    </button>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="FC82D327-01D4-43E2-B09F-F17A433425E3" label="Custom View" paletteLabel="Custom View" image="NSRemoveTemplate" id="7Kq-GO-dEE">
+                                <toolbarItem implicitItemIdentifier="FD2F41A2-837E-4348-B4E9-E9471CC55275" label="Custom View" paletteLabel="Custom View" image="NSAddTemplate" id="BJJ-BD-cJw">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="27" height="28"/>
                                     <size key="maxSize" width="40" height="35"/>
-                                    <button key="view" verticalHuggingPriority="750" id="YHr-aG-cPc">
+                                    <button key="view" verticalHuggingPriority="750" id="WdI-ba-2Fz">
                                         <rect key="frame" x="24" y="14" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="W5L-W2-Uzt">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1wJ-Ku-RIn">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="deleteBackward:" target="Oky-zY-oP4" id="Q6g-Bs-neD"/>
+                                            <action selector="addRow:" target="Oky-zY-oP4" id="mxO-cy-6KI"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="4373A2EB-46E9-4EB8-B563-53DCA32E2F01" label="Custom View" paletteLabel="Custom View" image="NSRemoveTemplate" id="Sj4-fc-AiV">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="27" height="28"/>
+                                    <size key="maxSize" width="40" height="35"/>
+                                    <button key="view" verticalHuggingPriority="750" id="RL1-9p-ZxA">
+                                        <rect key="frame" x="24" y="14" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ri-Qx-WC3">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="deleteBackward:" target="Oky-zY-oP4" id="RLr-1v-hG1"/>
                                         </connections>
                                     </button>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="BJJ-BD-cJw"/>
                                 <toolbarItem reference="Sj4-fc-AiV"/>
-                                <toolbarItem reference="7Kq-GO-dEE"/>
                                 <toolbarItem reference="Uy5-cU-GYv"/>
                             </defaultToolbarItems>
                         </toolbar>
